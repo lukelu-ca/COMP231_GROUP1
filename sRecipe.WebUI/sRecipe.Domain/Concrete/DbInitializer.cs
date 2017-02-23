@@ -24,8 +24,8 @@ namespace sRecipe.Domain.Concrete
             }.ForEach(s => context.MealTypes.Add(s));
             
 
-            User u1 = new User { NickName="Admin", Role=Role.Administrator, Email="lukelu@live.ca", Password="111" };
-            User u2 = new User { NickName = "M1", Role = Role.Membership, Email="t@t.com",Password="ttt" };
+            User u1 = new User { NickName="Admin", Role=Role.Administrator, Email="lukelu@live.ca", Password="111", Location="CA" };
+            User u2 = new User { NickName = "M1", Role = Role.Membership, Email="t@t.com",Password="ttt", Location = "CA" };
             context.SaveChanges();
 
             MealType t1 = context.MealTypes.Where(s=> s.Id==1).FirstOrDefault();

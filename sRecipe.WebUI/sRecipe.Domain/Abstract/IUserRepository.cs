@@ -14,5 +14,9 @@ namespace sRecipe.Domain.Abstract
         bool Authenticate(string email, string password);
         bool IsAdministrator(string username);
         User GetUserByEmail(string email);
+
+        void CreateUser(User user);
+        bool IsEmailExist(string email);
+        bool IsNickNameExist(string username);
     }
 }

@@ -49,5 +49,6 @@ namespace sRecipe.WebUI.Controllers
             authProvider.Logout();
             return Redirect(Url.Action("Index", "Default"));
         }
+
     }
 }

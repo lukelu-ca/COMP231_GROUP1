@@ -23,7 +23,7 @@ namespace sRecipe.Domain.Concrete
         public bool Authenticate(string email, string password)
         {
             User login = Users.Where(s => s.Email == email).FirstOrDefault();
-            if (login !=null)
+            if (login != null)
             {
                 return login.Password == password;
             }
@@ -31,9 +31,15 @@ namespace sRecipe.Domain.Concrete
             { return false; }
         }
 
+        public void CreateUser(User user)
+        {
+                context.Users.Add(user);
+                context.SaveChanges();
+        }
+
         public User GetUserByEmail(string email)
         {
-          return Users.First(s => s.Email == email);
+            return Users.FirstOrDefault(s => s.Email == email);
         }
 
         /// <summary>
@@ -48,6 +54,20 @@ namespace sRecipe.Domain.Concrete
                 return user.Role == Role.Administrator;
             else
                 return false;
+        }
+        /// <summary>
+        /// Check whether the email has already signed up
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public bool IsEmailExist(string email)
+        {
+            return GetUserByEmail(email) != null;
+        }
+
+        public bool IsNickNameExist(string username)
+        {
+            return Users.FirstOrDefault(s => s.NickName == username) != null;
         }
     }
 }
