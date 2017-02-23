@@ -42,7 +42,13 @@ namespace sRecipe.WebUI.Controllers
         [AdminAuth]
         public string Admin()
         {
-            return "This is the List action on the Home controller AdminIndex";
+            return "This is the List action on the Home controller Admin";
+        }
+
+        [Authorize(Roles ="Administrator")]
+        public string Role()
+        {
+            return "This is the List action on the Home controller Role Administrator";
         }
 
     }

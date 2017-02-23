@@ -20,12 +20,14 @@ namespace sRecipe.WebUI.Controllers
         // GET: Nav
         public PartialViewResult Menu()
         {
+            //fill fileds of AccountViewModel
             AccountViewModel menuVM = new AccountViewModel();
             menuVM.isAuthenticated = Request.IsAuthenticated;
-            if (User.Identity !=null && User.Identity.Name!="")
+            
+            if (User.Identity !=null && !string.IsNullOrWhiteSpace(User.Identity.Name))
             {
-                menuVM.user = repository.Users.Where(s => s.Email == User.Identity.Name).FirstOrDefault();
-                menuVM.IsAdmin = (menuVM.user.Role== Role.Administrator);
+                menuVM.User = repository.GetUserByEmail(User.Identity.Name);
+                menuVM.IsAdmin = User.IsInRole("Administrator"); //repository.IsAdministrator(User.Identity.Name);
             }
             return PartialView(menuVM);
         }

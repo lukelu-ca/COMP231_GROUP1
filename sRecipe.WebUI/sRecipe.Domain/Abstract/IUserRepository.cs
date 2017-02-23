@@ -11,7 +11,8 @@ namespace sRecipe.Domain.Abstract
     {
         IEnumerable<User> Users { get;  }
 
-        bool Authenticate(string username, string password);
-
+        bool Authenticate(string email, string password);
+        bool IsAdministrator(string username);
+        User GetUserByEmail(string email);
     }
 }

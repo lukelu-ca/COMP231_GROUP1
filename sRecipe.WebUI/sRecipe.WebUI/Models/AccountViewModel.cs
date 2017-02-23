@@ -9,7 +9,7 @@ namespace sRecipe.WebUI.Models
 
     public class AccountViewModel
     {
-        public User user;
+        public User User;
         public bool IsAdmin;
         public bool isAuthenticated;
     }

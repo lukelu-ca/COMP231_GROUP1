@@ -9,6 +9,31 @@ using System.Threading.Tasks;
 
 namespace sRecipe.Domain.Attributes
 {
+    /// <summary>
+    /// This is an attribute for giving an entity property a default DateTime value
+    /// Reference: 
+    /// https://code.msdn.microsoft.com/A-flexible-Default-Value-11c2db19
+    /// Useage:
+    ///// / Evaluate to the current date at run time 
+    //[DefaultDateTimeValue("Now")]
+    //public DateTime? PublishOn { get; set; }
+
+    //// Define an absolute date 
+    //[DefaultDateTimeValue("01/03/2016")]
+    //public DateTime? PublishOn { get; set; }
+
+    //// Define a relative date (30 days from now) 
+    //[DefaultDateTimeValue("30.00:00:00")]
+    //public DateTime? PublishOn { get; set; }
+
+    //// Define a relative date (1 hour from now) 
+    //[DefaultDateTimeValue("1:00:00")]
+    //public DateTime? PublishOn { get; set; }
+
+    //// Evaluate to last date of the month 
+    //[DefaultDateTimeValue("LastOfMonth")]
+    //public DateTime? PublishOn { get; set; }
+    /// </summary>
     [AttributeUsage(AttributeTargets.Property)]
     public sealed class DefaultDateTimeValueAttribute : ValidationAttribute
     {

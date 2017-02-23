@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace sRecipe.Domain.Attributes
 {
+    /// <summary>
+    /// This static method using for DefaultDateTimeValueAttribute
+    /// </summary>
     public static class DateTimeExtensions
     {
         public static DateTime FirstOfYear(this DateTime dateTime)

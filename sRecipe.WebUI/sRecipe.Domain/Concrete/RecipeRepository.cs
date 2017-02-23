@@ -25,21 +25,5 @@ namespace sRecipe.Domain.Concrete
         public IEnumerable<CommentOfComment> CommentOfComments { get { return context.CommentOfComments; } }
         public IEnumerable<CommentOfRecipe> CommentOfRecipes { get { return context.CommentOfRecipes; } }
 
-        /// <summary>
-        /// Authenticate email and password
-        /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
-        /// <returns></returns>
-        public bool Authenticate(string email, string password)
-        {
-            User login = Users.Where(s => s.Email == email).FirstOrDefault();
-            if (login !=null)
-            {
-                return login.Password == password;
-            }
-            else
-            { return false; }
-        }
     }
 }

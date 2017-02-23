@@ -211,6 +211,7 @@
     <Compile Include="HtmlHelpers\PagingHelper.cs" />
     <Compile Include="Infrastructures\Abstract\IAuthProvider.cs" />
     <Compile Include="Infrastructures\Concrete\FormsAuthProvider.cs" />
+    <Compile Include="Infrastructures\Concrete\sRecipeRoleProvider.cs" />
     <Compile Include="Infrastructures\Filters\AdminAuthAttribute.cs" />
     <Compile Include="Infrastructures\NinjectDependencyResolver.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
