@@ -1,6 +1,7 @@
 ﻿using sRecipe.Domain.Abstract;
 using sRecipe.Domain.Concrete;
 using sRecipe.Domain.Entities;
+using sRecipe.WebUI.Infrastructures.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,14 +19,31 @@ namespace sRecipe.WebUI.Controllers
             this.repository = repo;
         }
 
-        [Authorize]
-        // GET: Default
         public ActionResult Index()
         {
            
             return View(repository.Recipes.FirstOrDefault());
         }
 
+        /// <summary>
+        /// Sample action for a membership use
+        /// </summary>
+        /// <returns></returns>
+        [Authorize]
+        public string Member()
+        {
+            return "This is the List action on the Home controller Member";
+        }
+
+        /// <summary>
+        /// Sample action for only Administrator
+        /// </summary>
+        /// <returns></returns>
+        [AdminAuth]
+        public string Admin()
+        {
+            return "This is the List action on the Home controller AdminIndex";
+        }
 
     }
 }

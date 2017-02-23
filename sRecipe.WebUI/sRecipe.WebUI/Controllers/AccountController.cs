@@ -30,7 +30,7 @@ namespace sRecipe.WebUI.Controllers
             {
                 if (authProvider.Authenticate(model.UserName, model.Password))
                 {
-                    return Redirect(returnUrl ?? Url.Action("Index", "Admin"));
+                    return Redirect(returnUrl ?? Url.Action("Index", "Default"));
                 }
                 else
                 {
@@ -42,6 +42,12 @@ namespace sRecipe.WebUI.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult Logout()
+        {
+            authProvider.Logout();
+            return Redirect(Url.Action("Index", "Default"));
         }
     }
 }

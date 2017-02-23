@@ -12,7 +12,6 @@ namespace sRecipe.Domain.Concrete
     {
         private sRecipeContext context = new sRecipeContext();
         public IEnumerable<User> Users { get { return context.Users; } }
-        public IEnumerable<Role> Roles { get { return context.Roles; } }
 
 
         /// <summary>

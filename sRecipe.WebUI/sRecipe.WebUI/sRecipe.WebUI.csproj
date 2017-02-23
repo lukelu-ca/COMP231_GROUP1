@@ -204,14 +204,17 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelper.cs" />
     <Compile Include="Infrastructures\Abstract\IAuthProvider.cs" />
     <Compile Include="Infrastructures\Concrete\FormsAuthProvider.cs" />
+    <Compile Include="Infrastructures\Filters\AdminAuthAttribute.cs" />
     <Compile Include="Infrastructures\NinjectDependencyResolver.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\AccountViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\RecipesListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -235,6 +238,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Infrastructures\Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

@@ -11,7 +11,6 @@ namespace sRecipe.Domain.Abstract
     {
         IEnumerable<Recipe> Recipes { get;  }
         IEnumerable<User> Users { get;  }
-        IEnumerable<Role> Roles { get;  }
         IEnumerable<Picture> Pictures { get;  }
         IEnumerable<MadeIt> MadeIts { get;  }
         IEnumerable<MealType> MealTypes { get;  }

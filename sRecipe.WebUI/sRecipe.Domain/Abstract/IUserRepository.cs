@@ -10,7 +10,6 @@ namespace sRecipe.Domain.Abstract
     public interface IUserRepository
     {
         IEnumerable<User> Users { get;  }
-        IEnumerable<Role> Roles { get;  }
 
         bool Authenticate(string username, string password);
 

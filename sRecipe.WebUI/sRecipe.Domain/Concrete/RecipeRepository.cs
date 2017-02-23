@@ -14,7 +14,6 @@ namespace sRecipe.Domain.Concrete
 
         public IEnumerable<Recipe> Recipes { get { return context.Recipes; } }
         public IEnumerable<User> Users { get { return context.Users; } }
-        public IEnumerable<Role> Roles { get { return context.Roles; } }
         public IEnumerable<Picture> Pictures { get { return context.Pictures; } }
         public IEnumerable<MadeIt> MadeIts { get { return context.MadeIts; } }
         public IEnumerable<MealType> MealTypes { get { return context.MealTypes; } }

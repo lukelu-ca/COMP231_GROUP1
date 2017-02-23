@@ -9,6 +9,7 @@ namespace sRecipe.Domain.Concrete
 {
     public class DbInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<sRecipeContext>
     {
+        //Initiliaze data base
         protected override void Seed(sRecipeContext context)
         {
             new List<MealType>
@@ -21,12 +22,10 @@ namespace sRecipe.Domain.Concrete
                 new MealType { Name="MainCourse" }, //6
                 new MealType { Name="Dessert" }  //7
             }.ForEach(s => context.MealTypes.Add(s));
-            Role r1 = new Role { Name = "Administrator" };
-            Role r2 = new Role { Name = "Member" };
             
 
-            User u1 = new User { NickName="Admin", Role=r1 };
-            User u2 = new User { NickName = "M1", Role = r2 };
+            User u1 = new User { NickName="Admin", Role=Role.Administrator, Email="lukelu@live.ca", Password="111" };
+            User u2 = new User { NickName = "M1", Role = Role.Membership, Email="t@t.com",Password="ttt" };
             context.SaveChanges();
 
             MealType t1 = context.MealTypes.Where(s=> s.Id==1).FirstOrDefault();

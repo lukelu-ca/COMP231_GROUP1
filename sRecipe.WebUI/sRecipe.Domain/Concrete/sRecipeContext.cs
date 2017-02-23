@@ -33,7 +33,6 @@ namespace sRecipe.Domain.Concrete
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
         public virtual DbSet<Recipe> Recipes { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Picture> Pictures { get; set; }
         public virtual DbSet<MadeIt> MadeIts { get; set; }
         public virtual DbSet<MealType> MealTypes { get; set; }

@@ -8,5 +8,6 @@ namespace sRecipe.WebUI.Infrastructures.Abstract
     public interface IAuthProvider
     {
         bool Authenticate(string email, string password);
+        void Logout();
     }
 }

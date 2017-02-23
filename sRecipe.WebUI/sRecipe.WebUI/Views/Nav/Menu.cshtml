@@ -1,1 +1,41 @@
-﻿
+﻿@model sRecipe.WebUI.Models.AccountViewModel
+
+@if (@Model.isAuthenticated)
+{
+    if (@Model.IsAdmin)
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;<span runat="server" id="spanUsername"></span><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/account/changepassword"><span class="glyphicon glyphicon-tasks"></span>&nbsp;Change Password</a></li>
+                    <li><a href="/account/setting"><span class="glyphicon glyphicon-cog"></span>&nbsp;Settings</a></li>
+                    <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    }
+    else
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;<span runat="server" id="spanUsername"></span><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/account/changepassword"><span class="glyphicon glyphicon-tasks"></span>&nbsp;Change Password</a></li>
+                    <li><a href="/account/setting"><span class="glyphicon glyphicon-cog"></span>&nbsp;Settings</a></li>
+                    <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="/account/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Login</a></li>
+        <li><a href="/account/singup"><span class="glyphicon glyphicon-user"></span>&nbsp;SignUp</a></li>
+        <li><a href="/account/setting"><span class="glyphicon glyphicon-cog"></span>&nbsp;Setting</a></li>
+    </ul>
+}
+
+

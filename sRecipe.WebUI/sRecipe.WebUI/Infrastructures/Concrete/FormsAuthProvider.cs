@@ -22,8 +22,17 @@ namespace sRecipe.WebUI.Infrastructures.Concrete
             if (result)
             {
                 FormsAuthentication.SetAuthCookie(email, false);
+
             }
             return result;
+        }
+
+        /// <summary>
+        /// Logout and return to home page
+        /// </summary>
+        public void Logout()
+        {
+            FormsAuthentication.SignOut();
         }
     }
 }
