@@ -64,6 +64,7 @@ namespace sRecipe.WebUI.Infrastructures.Concrete
 
         public override bool IsUserInRole(string username, string roleName)
         {
+            if (!RoleExists(roleName)) return false;
             IUserRepository repo = new UserRepository();
             Role role;
             Enum.TryParse(roleName, out role);

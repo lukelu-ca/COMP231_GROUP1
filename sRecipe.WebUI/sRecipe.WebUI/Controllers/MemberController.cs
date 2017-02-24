@@ -27,7 +27,7 @@ namespace sRecipe.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                UserRepo.CreateUser(model as User);
+                UserRepo.CreateUser(ViewModelFactory.Parse(model));
                 return Redirect(Url.Action("Index", "Default"));
             }
             else

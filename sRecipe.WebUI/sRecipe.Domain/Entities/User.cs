@@ -13,10 +13,10 @@ namespace sRecipe.Domain.Entities
     {
         [Key]
         public int Id { get; set; }
-        public virtual string NickName { get; set; }
-        public virtual string Location { get; set; }
-        public virtual string Email { get; set; }
-        public virtual string Password { get; set; }
+        public string NickName { get; set; }
+        public string Location { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
         public virtual Role Role { get; set; }
         [DefaultDateTimeValue("Now")]
         public DateTime? CreateTime { get; set; }

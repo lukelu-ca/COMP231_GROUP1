@@ -8,18 +8,30 @@ using System.Web.Mvc;
 
 namespace sRecipe.WebUI.Models
 {
-    public class UserViewModel : User
+    public class UserViewModel
     {
-
+        [Key]
+        public int Id { get; set; }
         [Required]
+        [Display(Name = "Nick name")]
         [Remote("ValidateNickName", "Member", ErrorMessage = "NickName already exists.")]
-        public override string NickName { get; set; }
+        public string NickName { get; set; }
         [Required]
-        public override string Location { get; set; }
+        public string Location { get; set; }
         [Required]
-        [Remote("ValidateEmail", "Member", ErrorMessage ="Email already exists.")]
-        public override string Email { get; set; }
+        [Remote("ValidateEmail", "Member", ErrorMessage = "Email already exists.")]
+        public string Email { get; set; }
         [Required]
-        public override string Password { get; set; }
+        [DataType(DataType.Password)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        public string Password { get; set; }
+        [Required]
+        [Display(Name = "Confirm password")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        public string ConfirmPassword { get; set; }
+        public Role Role { get; set; }
+        public DateTime? CreateTime { get; set; }
+
+    
     }
 }

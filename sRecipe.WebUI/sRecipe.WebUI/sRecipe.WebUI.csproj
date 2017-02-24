@@ -229,6 +229,7 @@
     <Compile Include="Infrastructures\NinjectDependencyResolver.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\AccountViewModel.cs" />
+    <Compile Include="Models\ViewModelFactory.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\RecipesListViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
