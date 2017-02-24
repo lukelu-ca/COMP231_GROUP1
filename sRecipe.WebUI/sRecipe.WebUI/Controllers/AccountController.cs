@@ -28,7 +28,7 @@ namespace sRecipe.WebUI.Controllers
 
             if (ModelState.IsValid)
             {
-                if (authProvider.Authenticate(model.UserName, model.Password))
+                if (authProvider.Authenticate(model.Email, model.Password))
                 {
                     return Redirect(returnUrl ?? Url.Action("Index", "Default"));
                 }
