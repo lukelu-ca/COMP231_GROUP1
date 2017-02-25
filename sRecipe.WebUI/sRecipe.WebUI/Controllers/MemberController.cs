@@ -27,7 +27,8 @@ namespace sRecipe.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                UserRepo.CreateUser(ViewModelFactory.Parse(model));
+                var user = AutoMapper.Mapper.Map<UserViewModel,User>(model);
+                UserRepo.CreateUser(user);
                 return Redirect(Url.Action("Index", "Default"));
             }
             else

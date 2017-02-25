@@ -12,13 +12,12 @@ namespace sRecipe.WebUI.XunitTest
 {
     public class TestFirst
     {
-        [Theory]
+        [Fact]
         public void Test()
         {
-            IRecipeRepository db = new RecipeRepository();
-            
-            var list = db.Recipes.FirstOrDefault();
-            
+            //IRecipeRepository db = new RecipeRepository();
+
+            //var list = db.Recipes.FirstOrDefault();
 
         }
     }
