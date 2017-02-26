@@ -13,8 +13,8 @@ namespace sRecipe.Domain.Entities
         [Key]
         public int Id { get; set; }
         public byte[] Data { get; set; }
-        public virtual User User { get; set; }
-
+        public string MimeType { get; set; }
+        public int UserId { get; set; }
         [DefaultDateTimeValue("Now")]
         public DateTime? Uploaded_Time { get; set; }
         public string Description { get; set; }
@@ -22,6 +22,8 @@ namespace sRecipe.Domain.Entities
         public int Height { get; set; }
         public int Size { get; set; }
         public string FileName { get; set; }
+
+        public virtual User User { get; set; }
 
     }
 }

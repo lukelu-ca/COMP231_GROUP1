@@ -86,8 +86,6 @@
     <Compile Include="Concrete\RecipeRepository.cs" />
     <Compile Include="Concrete\sRecipeContext.cs" />
     <Compile Include="Entities\Comment.cs" />
-    <Compile Include="Entities\CommentOfComment.cs" />
-    <Compile Include="Entities\CommentOfRecipe.cs" />
     <Compile Include="Entities\Direction.cs" />
     <Compile Include="Entities\Favorite.cs" />
     <Compile Include="Entities\Ingredient.cs" />

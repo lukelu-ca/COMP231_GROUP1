@@ -12,12 +12,14 @@ namespace sRecipe.Domain.Entities
     {
         [Key]
         public int Id { get; set; }
-        public virtual Recipe Recipe { get; set; }
+        public int RecipeId { get; set; }
         public string Description { get; set; }
         public int Order { get; set; }
-        public virtual Picture Picture { get; set; }
         [DefaultDateTimeValue("Now")]
         public DateTime? CreateTime { get; set; }
+        public int? PictureId { get; set; }
+        public virtual Picture Picture { get; set; }
+        public virtual Recipe Recipe { get; set; }
 
     }
 }

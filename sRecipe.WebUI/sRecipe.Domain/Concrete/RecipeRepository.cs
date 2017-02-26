@@ -22,8 +22,6 @@ namespace sRecipe.Domain.Concrete
         public IEnumerable<Favorite> Favorites { get { return context.Favorites; } }
         public IEnumerable<Direction> Directions { get { return context.Directions; } }
         public IEnumerable<Comment> Comments { get { return context.Comments; } }
-        public IEnumerable<CommentOfComment> CommentOfComments { get { return context.CommentOfComments; } }
-        public IEnumerable<CommentOfRecipe> CommentOfRecipes { get { return context.CommentOfRecipes; } }
 
     }
 }

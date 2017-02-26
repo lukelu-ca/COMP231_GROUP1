@@ -17,8 +17,9 @@ namespace sRecipe.Domain.Entities
         public string Location { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public virtual Role Role { get; set; }
         [DefaultDateTimeValue("Now")]
         public DateTime? CreateTime { get; set; }
+        public virtual Role Role { get; set; }
+
     }
 }

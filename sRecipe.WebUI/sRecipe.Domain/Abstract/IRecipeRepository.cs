@@ -21,8 +21,6 @@ namespace sRecipe.Domain.Abstract
         IEnumerable<Favorite> Favorites { get;  }
         IEnumerable<Direction> Directions { get;  }
         IEnumerable<Comment> Comments { get;  }
-        IEnumerable<CommentOfComment> CommentOfComments { get;  }
-        IEnumerable<CommentOfRecipe> CommentOfRecipes { get;  }
 
 
     }

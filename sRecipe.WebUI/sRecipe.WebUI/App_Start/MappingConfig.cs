@@ -13,8 +13,10 @@ namespace sRecipe.WebUI.App_Start
         {
             AutoMapper.Mapper.Initialize(config =>
             {
-                config.CreateMap<UserViewModel, User>();
+                config.CreateMap<UserViewModel, User>()
+                       .ReverseMap();
 
+                      
             });
         }
     }
