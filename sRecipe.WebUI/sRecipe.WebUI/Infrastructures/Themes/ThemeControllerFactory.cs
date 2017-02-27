@@ -15,29 +15,41 @@ namespace sRecipe.WebUI.Infrastructures.Themes
         public override IController CreateController(System.Web.Routing.RequestContext requestContext, string controllerName)
         {
             Controller controller = base.CreateController(requestContext, controllerName) as Controller;
-            string themeName=string.Empty;
+           
+            string viewTheme=string.Empty;
+            string colorTheme = "Default";
+
             if (requestContext.HttpContext.Request.IsAuthenticated && requestContext.HttpContext.User != null)
             {
                 sRecipePrincipal user = requestContext.HttpContext.User as sRecipePrincipal;
-                themeName = user.Profile.ViewTheme;
+                (controller as ThemeControllerBase).User= user;
+                viewTheme = user.Profile.ViewTheme;
+                colorTheme = user.Profile.ColorTheme;
             }
             else
             {
                 if (string.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["ViewTheme"]))
                 {
-                    themeName= ConfigurationManager.AppSettings["ViewTheme"];
+                    viewTheme = ConfigurationManager.AppSettings["ViewTheme"];
                 }
+                if (string.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["ColorTheme"]))
+                {
+                    colorTheme = ConfigurationManager.AppSettings["ColorTheme"];
+                }
+
             }
-            if (!string.IsNullOrWhiteSpace(themeName))
+            controller.ViewBag.ColorTheme = colorTheme;
+
+            if (!string.IsNullOrWhiteSpace(viewTheme))
             {
                 var eng = controller.ViewEngineCollection[0];
                 if (eng is ThemeViewEngine)
                 {
-                    (eng as ThemeViewEngine).SetThemeName(themeName);
+                    (eng as ThemeViewEngine).SetThemeName(viewTheme);
                 }
                 else
                 {
-                    controller.ViewEngineCollection.Insert(0, new ThemeViewEngine(themeName));
+                    controller.ViewEngineCollection.Insert(0, new ThemeViewEngine(viewTheme));
                 }
             }
 

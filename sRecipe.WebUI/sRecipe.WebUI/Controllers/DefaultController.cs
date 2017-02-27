@@ -33,7 +33,7 @@ namespace sRecipe.WebUI.Controllers
         [Authorize]
         public string Member()
         {
-            return "This is the List action on the Home controller Member";
+            return "This is the List action on the Home controller Member:" + User.NickName;
         }
 
         /// <summary>
@@ -43,13 +43,13 @@ namespace sRecipe.WebUI.Controllers
         [AdminAuth]
         public string Admin()
         {
-            return "This is the List action on the Home controller Admin";
+            return "This is the List action on the Home controller Admin:" + User.NickName;
         }
 
         [Authorize(Roles ="Administrator")]
         public string Role()
         {
-            return "This is the List action on the Home controller Role Administrator";
+            return "This is the List action on the Home controller Role Administrator:" + User.NickName;
         }
 
     }

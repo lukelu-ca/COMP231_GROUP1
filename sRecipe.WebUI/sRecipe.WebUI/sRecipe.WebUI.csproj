@@ -298,8 +298,6 @@
     <None Include="Properties\PublishProfiles\sRecipe.pubxml" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Themes\Base\Default\Index.cshtml" />
-    <Content Include="Views\Themes\Base\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\Themes\Base\Shared\_Layout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

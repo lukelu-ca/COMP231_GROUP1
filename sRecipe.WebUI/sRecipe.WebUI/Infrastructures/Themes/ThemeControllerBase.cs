@@ -15,31 +15,11 @@ namespace sRecipe.WebUI.Infrastructures.Themes
 {
     public abstract class ThemeControllerBase : Controller
     {
-        protected virtual new sRecipePrincipal User
+        public virtual new sRecipePrincipal User
         {
             get;
-            private set;
+            set;
         }
 
-        protected override void Initialize(RequestContext requestContext)
-        {
-            if (requestContext.HttpContext.Request.IsAuthenticated)
-            {
-                User = requestContext.HttpContext.User as sRecipePrincipal;
-                base.ViewBag.ColorTheme = User.Profile.ColorTheme;
-            }
-            else
-            {
-                if (string.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["ColorTheme"]))
-                {
-                    base.ViewBag.ColorTheme = ConfigurationManager.AppSettings["ColorTheme"];
-                }
-                else
-                {
-                    base.ViewBag.ColorTheme = "Default";
-                }
-            }
-            base.Initialize(requestContext);
-        }
     }
 }
