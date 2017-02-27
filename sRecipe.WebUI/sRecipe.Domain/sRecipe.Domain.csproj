@@ -93,6 +93,7 @@
     <Compile Include="Entities\MadeItProcess.cs" />
     <Compile Include="Entities\MealType.cs" />
     <Compile Include="Entities\Picture.cs" />
+    <Compile Include="Entities\Profile.cs" />
     <Compile Include="Entities\Rating.cs" />
     <Compile Include="Entities\Recipe.cs" />
     <Compile Include="Entities\Role.cs" />

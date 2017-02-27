@@ -24,12 +24,9 @@ namespace sRecipe.WebUI.Infrastructures.Filters
             IIdentity ident = filterContext.Principal.Identity;
             
             IUserRepository repo = new UserRepository();
-            if (ident.IsAuthenticated && !string.IsNullOrWhiteSpace(ident.Name))
+            if (ident.IsAuthenticated && !string.IsNullOrWhiteSpace(ident.Name) && filterContext.HttpContext.User.IsInRole("Administrator"))
             {
-                //Get user entity by the identity username which is email address
-                //Is the role of user is administrator?
-                if (repo.IsAdministrator(ident.Name))
-                    filterContext.Result = new HttpUnauthorizedResult();
+                return;
             }
             else
             {

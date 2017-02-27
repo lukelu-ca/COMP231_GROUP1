@@ -24,6 +24,11 @@ namespace sRecipe.Domain.Concrete
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer(new DbInitializer());
+
+            //// Configure User & Profile entity
+            //modelBuilder.Entity<User>()
+            //            .HasOptional(s => s.Profile) // Mark Profile property optional in User entity
+            //            .WithRequired(ad => ad.User); // mark Student property as required in Profile entity. Cannot save StudentAddress without Student
             base.OnModelCreating(modelBuilder);
         }
 
@@ -33,6 +38,7 @@ namespace sRecipe.Domain.Concrete
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
         public virtual DbSet<Recipe> Recipes { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Profile> Profiles { get; set; }
         public virtual DbSet<Picture> Pictures { get; set; }
         public virtual DbSet<MadeIt> MadeIts { get; set; }
         public virtual DbSet<MealType> MealTypes { get; set; }

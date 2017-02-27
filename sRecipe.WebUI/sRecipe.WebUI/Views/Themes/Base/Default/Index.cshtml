@@ -1,0 +1,16 @@
+﻿@model sRecipe.Domain.Entities.Recipe
+
+<div class="well">
+    <h3>
+        <strong>@Model.Name - Paper</strong>
+        <span class="pull-right label label-primary"> @Model.User.NickName</span>
+    </h3>
+    <span>Ingredients:</span>
+    @if (Model.Ingredients != null)
+    {
+        foreach (var ing in Model.Ingredients)
+        {
+            <span>@ing.Name : @ing.Quantity (@ing.Unit)</span>
+        }
+    }
+</div>

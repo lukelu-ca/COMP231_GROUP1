@@ -1,8 +1,7 @@
-﻿@model sRecipe.WebUI.Models.AccountViewModel
-
-@if (@Model.isAuthenticated)
+﻿
+@if (User!=null)
 {
-    if (@Model.IsAdmin)
+    if (User.Role==sRecipe.Domain.Entities.Role.Administrator)
     {
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">

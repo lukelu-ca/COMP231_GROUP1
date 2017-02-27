@@ -24,8 +24,17 @@ namespace sRecipe.Domain.Concrete
             }.ForEach(s => context.MealTypes.Add(s));
 
 
-            User u1 = new User { NickName = "Admin", Role = Role.Administrator, Email = "lukelu@live.ca", Password = "111", Location = "CA" };
-            User u2 = new User { NickName = "M1", Role = Role.Membership, Email = "t@t.com", Password = "ttt", Location = "CA" };
+            User u1 = new User { NickName = "Admin", Role = Role.Administrator, Email = "lukelu@live.ca", Password = "111" };
+            User u2 = new User { NickName = "M1", Role = Role.Membership, Email = "t@t.com", Password = "ttt" };
+            context.Users.Add(u1);
+            context.Users.Add(u2);
+            context.SaveChanges();
+
+            new List<Profile>
+            {
+                new Profile { UserId=1, ColorTheme="Paper", ViewTheme="Base",Location="CA" },
+                new Profile { UserId=2, ColorTheme="Dark", ViewTheme="Default", Location="CA"}
+            }.ForEach(s => context.Profiles.Add(s));
             context.SaveChanges();
 
             //MealType t1 = context.MealTypes.Where(s => s.Id == 1).FirstOrDefault();
@@ -55,6 +64,7 @@ namespace sRecipe.Domain.Concrete
             context.Recipes.Add(new Recipe { Name = "Cookie 18", User = u2, MealTypeId = 1, Calorie = 1000, Number_of_Services = 3, Viewed = 1, Cooking_Time = 30, isPublic = true });
             context.Recipes.Add(new Recipe { Name = "Cookie 19", User = u2, MealTypeId = 1, Calorie = 1000, Number_of_Services = 3, Viewed = 1, Cooking_Time = 30, isPublic = true });
             context.Recipes.Add(new Recipe { Name = "Cookie 20", User = u2, MealTypeId = 1, Calorie = 1000, Number_of_Services = 3, Viewed = 1, Cooking_Time = 30, isPublic = true });
+
             context.SaveChanges();
 
 

@@ -2,6 +2,7 @@
 using sRecipe.Domain.Concrete;
 using sRecipe.Domain.Entities;
 using sRecipe.WebUI.Infrastructures.Filters;
+using sRecipe.WebUI.Infrastructures.Themes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ using Xunit;
 
 namespace sRecipe.WebUI.Controllers
 {
-    public class DefaultController : Controller
+    public class DefaultController : ThemeControllerBase
     {
         IRecipeRepository repository;
         public DefaultController(IRecipeRepository repo)
@@ -19,9 +20,9 @@ namespace sRecipe.WebUI.Controllers
             this.repository = repo;
         }
 
+
         public ActionResult Index()
         {
-           
             return View(repository.Recipes.FirstOrDefault());
         }
 

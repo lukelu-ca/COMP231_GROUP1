@@ -37,6 +37,12 @@ namespace sRecipe.Domain.Concrete
                 context.SaveChanges();
         }
 
+        public Profile GetProfile(string email)
+        {
+            User u = GetUserByEmail(email);
+            return u.Profile;
+        }
+
         public User GetUserByEmail(string email)
         {
             return Users.FirstOrDefault(s => s.Email == email);

@@ -18,5 +18,6 @@ namespace sRecipe.Domain.Abstract
         void CreateUser(User user);
         bool IsEmailExist(string email);
         bool IsNickNameExist(string username);
+        Profile GetProfile(string email);
     }
 }

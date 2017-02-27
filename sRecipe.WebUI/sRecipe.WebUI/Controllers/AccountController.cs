@@ -1,4 +1,6 @@
-﻿using sRecipe.WebUI.Infrastructures.Abstract;
+﻿using sRecipe.Domain.Entities;
+using sRecipe.WebUI.Infrastructures.Abstract;
+using sRecipe.WebUI.Infrastructures.Themes;
 using sRecipe.WebUI.Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,7 @@ using System.Web.Mvc;
 
 namespace sRecipe.WebUI.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : ThemeControllerBase
     {
         IAuthProvider authProvider;
 
@@ -43,7 +45,7 @@ namespace sRecipe.WebUI.Controllers
                 return View();
             }
         }
-
+ 
         public ActionResult Logout()
         {
             authProvider.Logout();

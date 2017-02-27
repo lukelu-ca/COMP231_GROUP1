@@ -11,8 +11,11 @@
     <script src="@Url.Content("~/Scripts/jquery.validate.js")"></script>
     <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")"></script>
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link rel="stylesheet" href="@Url.Content(String.Format("~/Content/themes/{0}/bootstrap.min.css", ViewBag.ColorTheme))" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content(String.Format("~/Content/themes/{0}/StyleSheet.css", ViewBag.ColorTheme))" type="text/css" />
 </head>
 <body>
+   
     <div class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">

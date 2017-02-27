@@ -18,8 +18,7 @@
     <AssemblyName>sRecipe.WebUI</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>
-    </IISExpressSSLPort>
+    <IISExpressSSLPort>44349</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -191,6 +190,37 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Themes\Cerulean\bootstrap.min.css" />
+    <Content Include="Content\Themes\Cerulean\StyleSheet.css" />
+    <Content Include="Content\Themes\Cosmo\bootstrap.min.css" />
+    <Content Include="Content\Themes\Cosmo\StyleSheet.css" />
+    <Content Include="Content\Themes\Cyborg\bootstrap.min.css" />
+    <Content Include="Content\Themes\Cyborg\StyleSheet.css" />
+    <Content Include="Content\Themes\Darkly\bootstrap.min.css" />
+    <Content Include="Content\Themes\Darkly\StyleSheet.css" />
+    <Content Include="Content\Themes\Dark\bootstrap.min.css" />
+    <Content Include="Content\Themes\Dark\StyleSheet.css" />
+    <Content Include="Content\Themes\Default\StyleSheet.css" />
+    <Content Include="Content\Themes\Flatly\bootstrap.min.css" />
+    <Content Include="Content\Themes\Flatly\StyleSheet.css" />
+    <Content Include="Content\Themes\Journal\bootstrap.min.css" />
+    <Content Include="Content\Themes\Journal\StyleSheet.css" />
+    <Content Include="Content\Themes\Light\bootstrap.min.css" />
+    <Content Include="Content\Themes\Light\StyleSheet.css" />
+    <Content Include="Content\Themes\Lumen\bootstrap.min.css" />
+    <Content Include="Content\Themes\Lumen\StyleSheet.css" />
+    <Content Include="Content\Themes\Paper\bootstrap.min.css" />
+    <Content Include="Content\Themes\Paper\StyleSheet.css" />
+    <Content Include="Content\Themes\Slate\bootstrap.min.css" />
+    <Content Include="Content\Themes\Slate\StyleSheet.css" />
+    <Content Include="Content\Themes\Spacelab\bootstrap.min.css" />
+    <Content Include="Content\Themes\Spacelab\StyleSheet.css" />
+    <Content Include="Content\Themes\Superhero\bootstrap.min.css" />
+    <Content Include="Content\Themes\Superhero\StyleSheet.css" />
+    <Content Include="Content\Themes\United\bootstrap.min.css" />
+    <Content Include="Content\Themes\United\StyleSheet.css" />
+    <Content Include="Content\Themes\Yeti\bootstrap.min.css" />
+    <Content Include="Content\Themes\Yeti\StyleSheet.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
@@ -198,6 +228,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\Themes\Default\Default.skin" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -224,6 +255,8 @@
     <Content Include="Views\Member\SignUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\ControllerConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\MappingConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -236,15 +269,21 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelper.cs" />
+    <Compile Include="Infrastructures\Abstract\BaseViewPage.cs" />
     <Compile Include="Infrastructures\Abstract\IAuthProvider.cs" />
     <Compile Include="Infrastructures\Concrete\FormsAuthProvider.cs" />
-    <Compile Include="Infrastructures\Concrete\sRecipeRoleProvider.cs" />
+    <Compile Include="Infrastructures\Concrete\ProfileModel.cs" />
+    <Compile Include="Infrastructures\Concrete\sRecipePrincipal.cs" />
     <Compile Include="Infrastructures\Filters\AdminAuthAttribute.cs" />
+    <Compile Include="Infrastructures\Filters\NoCacheAttribute.cs" />
     <Compile Include="Infrastructures\NinjectDependencyResolver.cs" />
+    <Compile Include="Infrastructures\Themes\ThemeControllerBase.cs" />
+    <Compile Include="Infrastructures\Themes\ThemeControllerFactory.cs" />
+    <Compile Include="Infrastructures\Themes\ThemeViewEngine.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
-    <Compile Include="Models\AccountViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\RecipesListViewModel.cs" />
+    <Compile Include="Infrastructures\Concrete\sRecipePrincipalSerializeModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XunitTest\TestFirst.cs" />
@@ -258,6 +297,9 @@
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <None Include="Properties\PublishProfiles\sRecipe.pubxml" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Views\Themes\Base\Default\Index.cshtml" />
+    <Content Include="Views\Themes\Base\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Themes\Base\Shared\_Layout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -268,6 +310,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Infrastructures\Helpers\" />
+    <Folder Include="Views\Themes\Default\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
