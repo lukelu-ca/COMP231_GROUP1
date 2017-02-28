@@ -2,8 +2,10 @@
 using sRecipe.Domain.Abstract;
 using sRecipe.Domain.Concrete;
 using sRecipe.Domain.Entities;
+using sRecipe.WebUI.Infrastructures.ActionResults;
 using sRecipe.WebUI.Infrastructures.Concrete;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -20,6 +22,14 @@ namespace sRecipe.WebUI.Infrastructures.Themes
             get;
             set;
         }
+        public ActionResult XML(object model)
+        {
+            return new XMLResult(model);
+        }
 
+        public ActionResult CSV(IEnumerable model)
+        {
+            return new CSVResult(model, "Export");
+        }
     }
 }

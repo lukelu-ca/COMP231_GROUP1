@@ -48,8 +48,8 @@ namespace sRecipe.Domain.Concrete
         public virtual DbSet<Direction> Directions { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
 
+        public virtual DbSet<ErrorLog> ErrorLogs { get; set; }
 
-        
 
     }
 

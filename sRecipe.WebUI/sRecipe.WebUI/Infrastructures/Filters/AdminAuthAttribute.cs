@@ -22,8 +22,6 @@ namespace sRecipe.WebUI.Infrastructures.Filters
         public void OnAuthentication(AuthenticationContext filterContext)
         {
             IIdentity ident = filterContext.Principal.Identity;
-            
-            IUserRepository repo = new UserRepository();
             if (ident.IsAuthenticated && !string.IsNullOrWhiteSpace(ident.Name) && filterContext.HttpContext.User.IsInRole("Administrator"))
             {
                 return;

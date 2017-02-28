@@ -12,12 +12,10 @@ namespace sRecipe.Domain.Abstract
         IEnumerable<User> Users { get;  }
 
         bool Authenticate(string email, string password);
-        bool IsAdministrator(string username);
         User GetUserByEmail(string email);
 
         void CreateUser(User user);
         bool IsEmailExist(string email);
         bool IsNickNameExist(string username);
-        Profile GetProfile(string email);
     }
 }

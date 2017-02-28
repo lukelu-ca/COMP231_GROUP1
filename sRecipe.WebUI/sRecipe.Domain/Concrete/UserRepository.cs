@@ -37,30 +37,12 @@ namespace sRecipe.Domain.Concrete
                 context.SaveChanges();
         }
 
-        public Profile GetProfile(string email)
-        {
-            User u = GetUserByEmail(email);
-            return u.Profile;
-        }
-
         public User GetUserByEmail(string email)
         {
             return Users.FirstOrDefault(s => s.Email == email);
         }
 
-        /// <summary>
-        /// Check whether the user is an administrator
-        /// </summary>
-        /// <param name="username"></param>
-        /// <returns></returns>
-        public bool IsAdministrator(string email)
-        {
-            User user = GetUserByEmail(email);
-            if (user != null)
-                return user.Role == Role.Administrator;
-            else
-                return false;
-        }
+ 
         /// <summary>
         /// Check whether the email has already signed up
         /// </summary>

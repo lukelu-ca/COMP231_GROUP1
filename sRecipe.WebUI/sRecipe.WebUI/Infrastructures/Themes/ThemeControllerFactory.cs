@@ -45,7 +45,7 @@ namespace sRecipe.WebUI.Infrastructures.Themes
                 var eng = controller.ViewEngineCollection[0];
                 if (eng is ThemeViewEngine)
                 {
-                    (eng as ThemeViewEngine).SetThemeName(viewTheme);
+                    (eng as ThemeViewEngine).SetViewTheme(viewTheme);
                 }
                 else
                 {

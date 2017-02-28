@@ -52,5 +52,10 @@ namespace sRecipe.WebUI.Controllers
             return "This is the List action on the Home controller Role Administrator:" + User.NickName;
         }
 
+        public ActionResult Error()
+        {
+            var test = int.Parse("test");
+            return View();
+        }
     }
 }

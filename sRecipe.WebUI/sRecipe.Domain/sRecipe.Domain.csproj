@@ -77,16 +77,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IErrorLogRepository.cs" />
     <Compile Include="Abstract\IUserRepository.cs" />
     <Compile Include="Abstract\IRecipeRepository.cs" />
     <Compile Include="Attributes\DateTimeExtensions.cs" />
     <Compile Include="Attributes\DefaultDateTimeValue.cs" />
     <Compile Include="Concrete\DbInitializer.cs" />
+    <Compile Include="Concrete\ErrorLogRepository.cs" />
     <Compile Include="Concrete\UserRepository.cs" />
     <Compile Include="Concrete\RecipeRepository.cs" />
     <Compile Include="Concrete\sRecipeContext.cs" />
     <Compile Include="Entities\Comment.cs" />
     <Compile Include="Entities\Direction.cs" />
+    <Compile Include="Entities\ErrorLog.cs" />
     <Compile Include="Entities\Favorite.cs" />
     <Compile Include="Entities\Ingredient.cs" />
     <Compile Include="Entities\MadeIt.cs" />
