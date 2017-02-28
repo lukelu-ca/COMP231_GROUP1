@@ -21,6 +21,7 @@ namespace sRecipe.WebUI.Controllers
         public SampleController(IRecipeRepository repo)
         {
             _repo = repo;
+            _context = new sRecipeContext();
         }
 
         [AdminAuth]
@@ -35,11 +36,11 @@ namespace sRecipe.WebUI.Controllers
         /// </summary>
         /// <param name="mtype"></param>
         /// <returns></returns>
+        [HttpPost]
         public ActionResult AddMealType(MealTypeViewModel mtype)
         {
             if (ModelState.IsValid)
             {
-                _context = new sRecipeContext();
                 var data = Mapper.Map<MealTypeViewModel, MealType>(mtype);
                 _context.MealTypes.Add(data);
                 _context.SaveChanges();

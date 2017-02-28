@@ -279,6 +279,7 @@
     <Compile Include="Infrastructures\Concrete\sRecipePrincipal.cs" />
     <Compile Include="Infrastructures\Filters\AdminAuthAttribute.cs" />
     <Compile Include="Infrastructures\Filters\ExceptionLoggingFilter.cs" />
+    <Compile Include="Infrastructures\Filters\HttpAuthenticate.cs" />
     <Compile Include="Infrastructures\Filters\NoCacheAttribute.cs" />
     <Compile Include="Infrastructures\Filters\RecipeWorkflowFilter.cs" />
     <Compile Include="Infrastructures\Filters\RecipeWorkflowValues.cs" />
