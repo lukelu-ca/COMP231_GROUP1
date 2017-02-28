@@ -12,6 +12,7 @@ namespace sRecipe.Domain.Concrete
     {
         private sRecipeContext context = new sRecipeContext();
         public IEnumerable<User> Users { get { return context.Users; } }
+        public IEnumerable<LogData> LogDatas { get { return context.LogDatas; } }
 
 
         /// <summary>
@@ -25,12 +26,23 @@ namespace sRecipe.Domain.Concrete
             User login = Users.Where(s => s.Email == email).FirstOrDefault();
             if (login != null)
             {
-                return login.Password == password;
+                if (login.Password == password)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             { return false; }
         }
-
+        public void CreateLog(LogData data)
+        {
+            context.LogDatas.Add(data);
+            context.SaveChanges();
+        }
         public void CreateUser(User user)
         {
                 context.Users.Add(user);

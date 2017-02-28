@@ -21,6 +21,11 @@ namespace sRecipe.WebUI.App_Start
 
                 config.CreateMap<MealTypeViewModel, MealType>()
                        .ReverseMap();
+
+                config.CreateMap<LoginViewModel, LogData>()
+                        .ForMember(dest => dest.EmailAddress,
+                                    opts => opts.MapFrom(src => src.Email)
+                                    );
             });
 
         }

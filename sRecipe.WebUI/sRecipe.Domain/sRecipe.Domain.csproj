@@ -92,6 +92,7 @@
     <Compile Include="Entities\ErrorLog.cs" />
     <Compile Include="Entities\Favorite.cs" />
     <Compile Include="Entities\Ingredient.cs" />
+    <Compile Include="Entities\LogData.cs" />
     <Compile Include="Entities\MadeIt.cs" />
     <Compile Include="Entities\MadeItProcess.cs" />
     <Compile Include="Entities\MealType.cs" />

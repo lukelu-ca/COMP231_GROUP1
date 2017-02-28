@@ -15,6 +15,7 @@ namespace sRecipe.Domain.Abstract
         User GetUserByEmail(string email);
 
         void CreateUser(User user);
+        void CreateLog(LogData data);
         bool IsEmailExist(string email);
         bool IsNickNameExist(string username);
     }

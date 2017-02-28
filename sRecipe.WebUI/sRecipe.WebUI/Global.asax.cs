@@ -8,6 +8,7 @@ using System.Web.Security;
 using Newtonsoft.Json;
 using sRecipe.WebUI.Infrastructures.Concrete;
 using sRecipe.WebUI.Infrastructures.ModelBinders;
+using sRecipe.WebUI.Infrastructures.ValueProviders;
 
 namespace sRecipe.WebUI
 {
@@ -25,9 +26,12 @@ namespace sRecipe.WebUI
             //regist map
             MappingConfig.RegisterMaps();
             //use customer controller factory
+          
             ControllerConfig.SetControllerFactory(ControllerBuilder.Current);
             //use xml model binderprovider
             ModelBinderProviders.BinderProviders.Insert(0, new XMLModelBinderProvider());
+            //register value privider
+            ValueProviderFactories.Factories.Insert(0, new HttpValueProviderFactory());
         }
 
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)

@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using sRecipe.Domain.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace sRecipe.WebUI.Models
 {
-    public class LoginViewModel
+    public class LoginViewModel : LogData
     {
         [Required]
         [EmailAddress]

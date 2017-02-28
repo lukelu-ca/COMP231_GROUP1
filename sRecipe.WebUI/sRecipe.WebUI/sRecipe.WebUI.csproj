@@ -290,6 +290,7 @@
     <Compile Include="Infrastructures\Themes\ThemeControllerBase.cs" />
     <Compile Include="Infrastructures\Themes\ThemeControllerFactory.cs" />
     <Compile Include="Infrastructures\Themes\ThemeViewEngine.cs" />
+    <Compile Include="Infrastructures\ValueProviders\HttpValueProvider.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\MealTypeViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />

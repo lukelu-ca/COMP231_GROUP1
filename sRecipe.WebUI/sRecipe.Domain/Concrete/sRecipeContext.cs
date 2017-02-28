@@ -49,7 +49,7 @@ namespace sRecipe.Domain.Concrete
         public virtual DbSet<Comment> Comments { get; set; }
 
         public virtual DbSet<ErrorLog> ErrorLogs { get; set; }
-
+        public virtual DbSet<LogData> LogDatas { get; set; }
 
     }
 

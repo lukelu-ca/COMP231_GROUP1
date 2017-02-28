@@ -1,4 +1,6 @@
-﻿using sRecipe.Domain.Entities;
+﻿using AutoMapper;
+using sRecipe.Domain.Abstract;
+using sRecipe.Domain.Entities;
 using sRecipe.WebUI.Infrastructures.Abstract;
 using sRecipe.WebUI.Infrastructures.Themes;
 using sRecipe.WebUI.Models;
@@ -12,11 +14,12 @@ namespace sRecipe.WebUI.Controllers
 {
     public class AccountController : ThemeControllerBase
     {
-        IAuthProvider authProvider;
-
-        public AccountController(IAuthProvider auth)
+        IAuthProvider _authProvider;
+        IUserRepository _repo;
+        public AccountController(IAuthProvider auth, IUserRepository repo)
         {
-            authProvider = auth;
+            _authProvider = auth;
+            _repo = repo;
         }
 
         public ViewResult Login()
@@ -30,12 +33,19 @@ namespace sRecipe.WebUI.Controllers
 
             if (ModelState.IsValid)
             {
-                if (authProvider.Authenticate(model.Email, model.Password))
+                //map loginview to LogData
+                var data = Mapper.Map<LoginViewModel, LogData>(model);
+                
+                if (_authProvider.Authenticate(model.Email, model.Password))
                 {
+                    data.Success = true;
+                    _repo.CreateLog(data);
                     return Redirect(returnUrl ?? Url.Action("Index", "Default"));
                 }
                 else
                 {
+                    data.Success = false;
+                    _repo.CreateLog(data);
                     ModelState.AddModelError("", "Incorrect username or password");
                     return View();
                 }
@@ -48,7 +58,7 @@ namespace sRecipe.WebUI.Controllers
  
         public ActionResult Logout()
         {
-            authProvider.Logout();
+            _authProvider.Logout();
             return Redirect(Url.Action("Index", "Default"));
         }
 
