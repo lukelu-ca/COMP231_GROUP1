@@ -1,4 +1,4 @@
-﻿using sRecipe.Domain.Entities;
+﻿using sRecipe.Repository.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

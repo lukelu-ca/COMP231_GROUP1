@@ -6,6 +6,9 @@ using System.Web.Mvc;
 
 namespace sRecipe.WebUI.Infrastructures.Filters
 {
+    /// <summary>
+    //sample: not use for this project
+    /// </summary>
     public class NoCacheAttribute : ActionFilterAttribute
     {
         public override void OnResultExecuting(ResultExecutingContext filterContext)

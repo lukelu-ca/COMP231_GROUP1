@@ -1,6 +1,6 @@
 ﻿using Ninject;
-using sRecipe.Domain.Abstract;
-using sRecipe.Domain.Concrete;
+using sRecipe.Repository.Abstract;
+using sRecipe.Repository.Concrete;
 using sRecipe.WebUI.Infrastructures.Abstract;
 using sRecipe.WebUI.Infrastructures.Concrete;
 using System;

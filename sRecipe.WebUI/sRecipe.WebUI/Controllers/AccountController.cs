@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using sRecipe.Domain.Abstract;
-using sRecipe.Domain.Entities;
+using sRecipe.Repository.Abstract;
+using sRecipe.Repository.Entities;
 using sRecipe.WebUI.Infrastructures.Abstract;
 using sRecipe.WebUI.Infrastructures.Themes;
 using sRecipe.WebUI.Models;

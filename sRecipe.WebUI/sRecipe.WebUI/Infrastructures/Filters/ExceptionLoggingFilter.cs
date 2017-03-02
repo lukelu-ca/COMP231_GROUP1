@@ -1,6 +1,6 @@
-﻿using sRecipe.Domain.Abstract;
-using sRecipe.Domain.Concrete;
-using sRecipe.Domain.Entities;
+﻿using sRecipe.Repository.Abstract;
+using sRecipe.Repository.Concrete;
+using sRecipe.Repository.Entities;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,6 +11,9 @@ using System.Web.Mvc;
 
 namespace sRecipe.WebUI.Infrastructures.Filters
 {
+    /// <summary>
+    /// write error log to database
+    /// </summary>
     public class ExceptionLoggingFilter : FilterAttribute, IExceptionFilter
     {
         public void OnException(ExceptionContext filterContext)

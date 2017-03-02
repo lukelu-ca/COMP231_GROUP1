@@ -5,6 +5,7 @@ using System.Web;
 
 namespace sRecipe.WebUI.Infrastructures.Filters
 {
+    //sample: not use for this project
     public enum RecipeWorkflowValues
     {
         Begin = 0,

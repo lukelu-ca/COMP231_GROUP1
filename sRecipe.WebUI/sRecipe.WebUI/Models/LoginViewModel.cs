@@ -1,4 +1,4 @@
-﻿using sRecipe.Domain.Entities;
+﻿using sRecipe.Repository.Entities;
 using System.ComponentModel.DataAnnotations;
 
 namespace sRecipe.WebUI.Models

@@ -1,6 +1,7 @@
-﻿using sRecipe.Domain.Abstract;
-using sRecipe.Domain.Concrete;
-using sRecipe.Domain.Entities;
+﻿using sRecipe.Repository.Abstract;
+using sRecipe.Repository.Concrete;
+using sRecipe.Repository.Entities;
+using sRecipe.WebUI.Infrastructures.Concrete.SerializeModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,9 @@ using System.Web;
 
 namespace sRecipe.WebUI.Infrastructures.Concrete
 {
+    /// <summary>
+    /// hold Principal
+    /// </summary>
     public class sRecipePrincipal : IPrincipal
     {
         public IIdentity Identity { get; private set; }
@@ -36,7 +40,7 @@ namespace sRecipe.WebUI.Infrastructures.Concrete
         public int UserId { get; set; }
         public string NickName { get; set; }
         public Role Role { get; set; }
-        public ProfileModel Profile { get; set; }
+        public ProfileSerializeModel Profile { get; set; }
 
     }
 }

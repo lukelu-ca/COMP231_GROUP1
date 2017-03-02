@@ -1,4 +1,5 @@
-﻿using sRecipe.Domain.Entities;
+﻿using sRecipe.Repository.Entities;
+using sRecipe.WebUI.Infrastructures.Concrete.SerializeModels;
 using sRecipe.WebUI.Models;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,21 @@ namespace sRecipe.WebUI.App_Start
                         .ForMember(dest => dest.EmailAddress,
                                     opts => opts.MapFrom(src => src.Email)
                                     );
+
+                config.CreateMap<User, sRecipePrincipalSerializeModel>()
+                        .ForMember(dest => dest.UserId,
+                                   opts => opts.MapFrom(src => src.Id))
+                        .ForMember(dest => dest.Profile,
+                                    opts => opts.MapFrom(
+                                        src =>
+                                        new ProfileSerializeModel
+                                        {
+                                            Location = src.Profile.Location,
+                                            ColorTheme = src.Profile.ColorTheme,
+                                            ViewTheme = src.Profile.ViewTheme
+                                        }
+                                        )
+                                   );
             });
 
         }

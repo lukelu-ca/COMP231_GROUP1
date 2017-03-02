@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using sRecipe.Domain.Abstract;
-using sRecipe.Domain.Concrete;
-using sRecipe.Domain.Entities;
+using sRecipe.Repository.Abstract;
+using sRecipe.Repository.Concrete;
+using sRecipe.Repository.Entities;
 using sRecipe.WebUI.Infrastructures.ActionResults;
 using sRecipe.WebUI.Infrastructures.Filters;
 using sRecipe.WebUI.Infrastructures.Themes;
@@ -49,6 +49,15 @@ namespace sRecipe.WebUI.Controllers
             return Content("Error");
         }
 
+        /// <summary>
+        /// testing whether IsRecipeMobile works
+        /// </summary>
+        /// <returns></returns>
+        [IsRecipeMobile]
+        public string getMobile()
+        {
+            return "This method only use for mobile.";
+        }
         public ActionResult RecipeCSV()
         {
             var recipes = _repo.Recipes.ToList();

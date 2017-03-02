@@ -111,6 +111,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -120,6 +124,14 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -275,11 +287,12 @@
     <Compile Include="Infrastructures\ActionResults\CSVResult.cs" />
     <Compile Include="Infrastructures\ActionResults\XMLResult.cs" />
     <Compile Include="Infrastructures\Concrete\FormsAuthProvider.cs" />
-    <Compile Include="Infrastructures\Concrete\ProfileModel.cs" />
+    <Compile Include="Infrastructures\Concrete\SerializeModels\ProfileSerializeModel.cs" />
     <Compile Include="Infrastructures\Concrete\sRecipePrincipal.cs" />
     <Compile Include="Infrastructures\Filters\AdminAuthAttribute.cs" />
     <Compile Include="Infrastructures\Filters\ExceptionLoggingFilter.cs" />
     <Compile Include="Infrastructures\Filters\HttpAuthenticate.cs" />
+    <Compile Include="Infrastructures\Filters\IsRecipeMobile.cs" />
     <Compile Include="Infrastructures\Filters\NoCacheAttribute.cs" />
     <Compile Include="Infrastructures\Filters\RecipeWorkflowFilter.cs" />
     <Compile Include="Infrastructures\Filters\RecipeWorkflowValues.cs" />
@@ -296,7 +309,7 @@
     <Compile Include="Models\MealTypeViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\RecipesListViewModel.cs" />
-    <Compile Include="Infrastructures\Concrete\sRecipePrincipalSerializeModel.cs" />
+    <Compile Include="Infrastructures\Concrete\SerializeModels\sRecipePrincipalSerializeModel.cs" />
     <Compile Include="Models\RecipeViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -327,13 +340,17 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\sRecipe.Domain\sRecipe.Domain.csproj">
-      <Project>{1687e20e-2c66-420a-b7b0-3a0a8e41ca80}</Project>
-      <Name>sRecipe.Domain</Name>
-    </ProjectReference>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+    <ProjectReference Include="..\..\sRecipe.Constants\sRecipe.Constants.csproj">
+      <Project>{b3f50395-ff6c-431a-9040-2353e1d8bf69}</Project>
+      <Name>sRecipe.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sRecipe.Repository\sRecipe.Repository.csproj">
+      <Project>{a212d2a0-09b8-4c1d-b659-595aa3552cd2}</Project>
+      <Name>sRecipe.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

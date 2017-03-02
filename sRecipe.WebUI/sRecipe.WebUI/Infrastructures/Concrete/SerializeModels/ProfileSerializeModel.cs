@@ -1,6 +1,6 @@
-﻿namespace sRecipe.WebUI.Infrastructures.Concrete
+﻿namespace sRecipe.WebUI.Infrastructures.Concrete.SerializeModels
 {
-    public class ProfileModel
+    public class ProfileSerializeModel
     {
         public string Location { get; set; }
         public string ViewTheme { get; set; }

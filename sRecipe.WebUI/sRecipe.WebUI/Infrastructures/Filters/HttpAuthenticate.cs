@@ -1,4 +1,4 @@
-﻿using sRecipe.Domain.Abstract;
+﻿using sRecipe.Repository.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,7 @@ using System.Web.Mvc.Filters;
 namespace sRecipe.WebUI.Infrastructures.Filters
 {
     /// <summary>
+    ///sample: not use for this project
     /// webapi BASIC Authentication
     /// </summary>
     public class HttpAuthenticate : FilterAttribute, IAuthenticationFilter

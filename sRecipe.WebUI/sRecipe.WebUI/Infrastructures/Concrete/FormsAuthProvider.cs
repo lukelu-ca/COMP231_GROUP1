@@ -1,13 +1,19 @@
-﻿using Newtonsoft.Json;
-using sRecipe.Domain.Abstract;
-using sRecipe.Domain.Entities;
+﻿using AutoMapper;
+using Newtonsoft.Json;
+using sRecipe.Repository.Abstract;
+using sRecipe.Repository.Entities;
 using sRecipe.WebUI.Infrastructures.Abstract;
+using sRecipe.WebUI.Infrastructures.Concrete.SerializeModels;
 using System;
 using System.Web;
 using System.Web.Security;
 
 namespace sRecipe.WebUI.Infrastructures.Concrete
 {
+    /// <summary>
+    /// Login, logout 
+    /// Authentication method
+    /// </summary>
     public class FormsAuthProvider : IAuthProvider
     {
         IUserRepository repository;
@@ -22,17 +28,9 @@ namespace sRecipe.WebUI.Infrastructures.Concrete
             if (result)
             {
                 User user = repository.GetUserByEmail(email);
-                sRecipePrincipalSerializeModel userSearializeModel = new sRecipePrincipalSerializeModel();
-                userSearializeModel.UserId = user.Id;
-                userSearializeModel.NickName = user.NickName;
-                userSearializeModel.Role = user.Role;
-                userSearializeModel.Profile = new ProfileModel
-                {
-                    Location = user.Profile.Location,
-                    ColorTheme = user.Profile.ColorTheme,
-                    ViewTheme = user.Profile.ViewTheme
-                };
-
+                sRecipePrincipalSerializeModel userSearializeModel = 
+                    Mapper.Map<User,sRecipePrincipalSerializeModel>(user);
+         
                 string userData = JsonConvert.SerializeObject(userSearializeModel);
                 FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(
                                  1,

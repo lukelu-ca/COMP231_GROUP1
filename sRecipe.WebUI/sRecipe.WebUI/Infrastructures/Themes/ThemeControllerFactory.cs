@@ -1,5 +1,5 @@
-﻿using sRecipe.Domain.Concrete;
-using sRecipe.Domain.Entities;
+﻿using sRecipe.Repository.Concrete;
+using sRecipe.Repository.Entities;
 using sRecipe.WebUI.Infrastructures.Concrete;
 using System;
 using System.Collections.Generic;

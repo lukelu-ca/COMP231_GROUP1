@@ -1,6 +1,6 @@
-﻿using sRecipe.Domain.Abstract;
-using sRecipe.Domain.Concrete;
-using sRecipe.Domain.Entities;
+﻿using sRecipe.Repository.Abstract;
+using sRecipe.Repository.Concrete;
+using sRecipe.Repository.Entities;
 using sRecipe.WebUI.Infrastructures.Filters;
 using sRecipe.WebUI.Infrastructures.Themes;
 using System;
