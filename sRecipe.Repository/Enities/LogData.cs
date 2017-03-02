@@ -10,7 +10,6 @@ namespace sRecipe.Repository.Entities
 {
     public class LogData
     {
-        [Key]
         public int LogDataId { get; set; }
         public string EmailAddress { get; set; }
         public string Host { get; set; }

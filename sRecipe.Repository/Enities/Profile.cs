@@ -10,6 +10,7 @@ namespace sRecipe.Repository.Entities
 {
     public class Profile
     {
+
         [Key, ForeignKey("User")]
         public int UserId { get; set; }
         public string Location { get; set; }

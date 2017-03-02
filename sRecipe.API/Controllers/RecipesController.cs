@@ -28,9 +28,10 @@ namespace sRecipe.API.Controllers
             _repo = repo;
         }
 
+        [Route("api/recipes", Name = "RecipesList")]
         // GET api/<controller>
         public IHttpActionResult Get(
-                string sort = "id", string userId = null,
+                string sort = "id", int userId = 0,
                 int page = 1, int pageSize = maxPageSize)
         {
 
@@ -38,7 +39,7 @@ namespace sRecipe.API.Controllers
             recipes = _repo.GetRecipes();
 
             recipes = recipes.ApplySort(sort)
-                    .Where(rc => (userId == null || rc.User.Id == Convert.ToInt32(userId)));
+                    .Where(rc => (userId == 0 || rc.User.Id == userId));
 
             //ensure the page size isn't lager than the maximu
 
@@ -82,13 +83,13 @@ namespace sRecipe.API.Controllers
 
             HttpContext.Current.Response.Headers.Add("X-sRecipe",
                Newtonsoft.Json.JsonConvert.SerializeObject(paginationHeader));
-
-
-            // return result
-            return Ok(recipes
+            var list = recipes
                 .Skip(pageSize * (page - 1))
                 .Take(pageSize)
-                .ToList());
+                .ToList();
+
+            // return result
+            return Ok(list);
         }
 
         // GET api/<controller>/5

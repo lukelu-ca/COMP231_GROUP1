@@ -10,14 +10,15 @@ namespace sRecipe.Repository.Entities
 {
     public class MadeItProcess
     {
-        [Key]
+       
         public int Id { get; set; }
         public int MadeItId { get; set; }
         public string Description { get; set; }
+        public int PictureId { get; set; }
         [DefaultValue(10)]
         public int Order { get; set; }
 
-        public virtual MadeIt MadeIt { get; set; }
+        //public virtual MadeIt MadeIt { get; set; }
         public virtual Picture Picture { get; set; }
 
     }

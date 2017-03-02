@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace sRecipe.Repository.Concrete
 {
-        public class sRecipeContext : DbContext
+    public class sRecipeContext : DbContext
     {
         // Your context has been configured to use a 'sRecipeContext' connection string from your application's 
         // configuration file (App.config or Web.config). By default, this connection string targets the 
@@ -29,6 +29,37 @@ namespace sRecipe.Repository.Concrete
             //modelBuilder.Entity<User>()
             //            .HasOptional(s => s.Profile) // Mark Profile property optional in User entity
             //            .WithRequired(ad => ad.User); // mark Student property as required in Profile entity. Cannot save StudentAddress without Student
+            //modelBuilder.Entity<User>()
+            //            .HasOptional(s => s.Profile) // Mark Profile property optional in User entity
+            //            .WithRequired(ad => ad.User); // mark Student property as required in Profile entity. Cannot save StudentAddress without Student
+
+            modelBuilder.Entity<Recipe>()
+                        .HasMany(i => i.Favorites)
+                        .WithRequired()
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Recipe>()
+                        .HasMany(i => i.MadeIts)
+                        .WithRequired()
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Recipe>()
+                        .HasMany(i => i.Comments)
+                        .WithRequired()
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Recipe>()
+                        .HasMany(i => i.Ratings)
+                        .WithRequired()
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<MadeIt>()
+                       .HasMany(i => i.MadeItProcesses)
+                       .WithRequired()
+                       .WillCascadeOnDelete(false);
+
+
+
             base.OnModelCreating(modelBuilder);
         }
 

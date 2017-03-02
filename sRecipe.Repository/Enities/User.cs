@@ -6,7 +6,7 @@ namespace sRecipe.Repository.Entities
 {
     public class User
     {
-        [Key]
+      
         public int Id { get; set; }
         public string NickName { get; set; }
         public string Email { get; set; }
@@ -14,6 +14,7 @@ namespace sRecipe.Repository.Entities
         [DefaultDateTimeValue("Now")]
         public DateTime? CreateTime { get; set; }
         public Role Role { get; set; }
+
 
         public virtual Profile Profile { get; set; }
     }

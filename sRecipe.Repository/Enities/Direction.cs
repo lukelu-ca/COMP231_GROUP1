@@ -6,7 +6,6 @@ namespace sRecipe.Repository.Entities
 {
     public class Direction
     {
-        [Key]
         public int Id { get; set; }
         public int RecipeId { get; set; }
         public string Description { get; set; }

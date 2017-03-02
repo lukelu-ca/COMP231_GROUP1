@@ -11,7 +11,7 @@ namespace sRecipe.Repository.Entities
 {
     public class Recipe
     {
-        [Key]
+     
         public int Id { get; set; }
         public string Name { get; set; }
         public int Cooking_Time { get; set; }
@@ -23,6 +23,7 @@ namespace sRecipe.Repository.Entities
         public DateTime? PostTime { get; set; }
         public bool isPublic { get; set; }
         public int? PictureId { get; set; }
+        public int UserId { get; set; }
 
         public virtual Picture Picture { get; set; }
         public virtual MealType MealType { get; set; }
