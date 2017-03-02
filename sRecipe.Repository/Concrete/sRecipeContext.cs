@@ -58,7 +58,12 @@ namespace sRecipe.Repository.Concrete
                        .WithRequired()
                        .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<Profile>()
+                        .HasKey(i => i.UserId);
 
+            modelBuilder.Entity<User>()
+                        .HasRequired(i => i.Profile)
+                        .WithRequiredPrincipal(ad => ad.User);
 
             base.OnModelCreating(modelBuilder);
         }

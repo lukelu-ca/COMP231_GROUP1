@@ -1,6 +1,7 @@
 ﻿using sRecipe.Repository.Attributes;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace sRecipe.Repository.Entities
 {
@@ -14,7 +15,6 @@ namespace sRecipe.Repository.Entities
         [DefaultDateTimeValue("Now")]
         public DateTime? CreateTime { get; set; }
         public Role Role { get; set; }
-
 
         public virtual Profile Profile { get; set; }
     }

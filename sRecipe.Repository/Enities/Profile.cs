@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,12 +12,12 @@ namespace sRecipe.Repository.Entities
     public class Profile
     {
 
-        [Key, ForeignKey("User")]
         public int UserId { get; set; }
         public string Location { get; set; }
         public string ViewTheme { get; set; }
         public string ColorTheme { get; set; }
 
+        [JsonIgnore]
         public virtual User User { get; set; }
     }
 }
