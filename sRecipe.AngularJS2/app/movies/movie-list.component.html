@@ -1,0 +1,62 @@
+﻿<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+    <!-- search -->
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-2'>Search:</div>
+            <div class='col-md-4'>
+                <input type='text' [(ngModel)]="listFilter" />
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-md-6' *ngIf='listFilter'> 
+                <h3>Searching: {{listFilter}}</h3>
+            </div>
+        </div>
+        <!-- table -->
+        <div class='table-responsive'>
+            <table class='table' *ngIf='movies && movies.length'>
+                <thead>
+                    <tr>
+                        <th>
+                            <button class='btn btn-primary' (click)='toggleImage()' >
+                                {{seePoster ? 'Hide' : 'See'}} Poster
+                            </button>
+                        </th>
+                        <th>Movie</th>
+                        <th>Starring</th>
+                        <th>Available</th>
+                        <th>Cost</th>
+                        <th>Reviews</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="#movie of movies | movieFilter:listFilter">
+                        <td>
+                            <img *ngIf='seePoster'  
+                                 [src]='movie.imageUrl'
+                                 [title]='movie.movieName'
+                                 [style.width.px]='imageWidth'
+                                 [style.margin.px]='imageMargin' 
+                            />
+                        </td>
+                        <td>
+                            <a [routerLink]="['/movie', movie.movieId]">
+                                {{movie.movieName}}
+                            </a>
+                        </td>
+                        <td>{{movie.movieStar | uppercase}}</td>
+                        <td>{{movie.releaseDate}}</td>
+                        <td>{{movie.price | currency:'USD':true:'1.2-2'}}</td>
+                        <td><md-review [rating]="movie.starRating"
+                                       (ratingClicked)="onRatingClicked($event)"></md-review></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -21,8 +21,10 @@ namespace sRecipe.Repository.Entities
         [DefaultValue(false)]
         public bool IsDeleted { get; set; }
 
+       
         public int? RecipeId { get; set; }
         public int? ParentId { get; set; }
         public virtual User User { get; set; }
+
     }
 }

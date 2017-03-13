@@ -67,6 +67,10 @@
     <Compile Include="Attributes\DateTimeExtensions.cs" />
     <Compile Include="Attributes\DefaultDateTimeValue.cs" />
     <Compile Include="Concrete\DbInitializer.cs" />
+    <Compile Include="Concrete\EFRepositoryPartials\Ingredient.cs" />
+    <Compile Include="Concrete\EFRepositoryPartials\Recipe.cs" />
+    <Compile Include="Concrete\EFRepositoryPartials\Comment.cs" />
+    <Compile Include="Concrete\EFRepositoryPartials\User.cs" />
     <Compile Include="Concrete\ErrorLogRepository.cs" />
     <Compile Include="Concrete\RecipeRepository.cs" />
     <Compile Include="Concrete\sRecipeContext.cs" />
@@ -87,6 +91,7 @@
     <Compile Include="Enities\Recipe.cs" />
     <Compile Include="Enities\Role.cs" />
     <Compile Include="Enities\User.cs" />
+    <Compile Include="Helpers\RepositoryActionResultExtensions.cs" />
     <Compile Include="Helpers\ListExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

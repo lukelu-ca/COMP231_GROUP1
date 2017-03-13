@@ -1,4 +1,5 @@
 ﻿using sRecipe.API.Helpers;
+using sRecipe.Constants.Helpers;
 using sRecipe.Repository.Abstract;
 using sRecipe.Repository.Concrete;
 using sRecipe.Repository.Entities;
@@ -13,20 +14,9 @@ using System.Web.Http.Routing;
 
 namespace sRecipe.API.Controllers
 {
-    public class RecipesController : ApiController
+    public class RecipesController : ApiControllerBase
     {
         const int maxPageSize = 10;
-
-        IsRecipeEFRepository _repo;
-
-        public RecipesController()
-        {
-            _repo = new sRecipeEFRepository();
-        }
-        public RecipesController(IsRecipeEFRepository repo)
-        {
-            _repo = repo;
-        }
 
         [Route("api/recipes", Name = "RecipesList")]
         // GET api/<controller>
@@ -71,17 +61,17 @@ namespace sRecipe.API.Controllers
                 }) : "";
 
 
-            var paginationHeader = new
+            var paginationHeader = new PagingInfo()
             {
-                currentPage = page,
-                pageSize = pageSize,
-                totalCount = totalCount,
-                totalPages = totalPages,
-                previousPageLink = prevLink,
-                nextPageLink = nextLink
+                CurrentPage = page,
+                PageSize = pageSize,
+                TotalCount = totalCount,
+                TotalPages = totalPages,
+                PreviousPageLink = prevLink,
+                NextPageLink = nextLink
             };
 
-            HttpContext.Current.Response.Headers.Add("X-sRecipe",
+            HttpContext.Current.Response.Headers.Add(PagingInfo.PagingHeader,
                Newtonsoft.Json.JsonConvert.SerializeObject(paginationHeader));
             var list = recipes
                 .Skip(pageSize * (page - 1))

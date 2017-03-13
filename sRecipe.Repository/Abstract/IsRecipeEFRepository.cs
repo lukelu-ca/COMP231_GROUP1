@@ -10,20 +10,43 @@ namespace sRecipe.Repository.Abstract
 {
    public interface IsRecipeEFRepository
     {
-        RepositoryActionResult<Recipe> DeleteRecipe(int id);
-        RepositoryActionResult<User> DeleteUser(int id);
-        RepositoryActionResult<Ingredient> DeleteIngredient(int id);
-
+        //Recipe CRUD Methods
+        RepositoryActionResult<Recipe> InsertRecipe(Recipe entity);
         IQueryable<Recipe> GetRecipes();
-        IQueryable<Recipe> GetRecipesWithIngredients();
+        Recipe GetRecipe(int id);
+        RepositoryActionResult<Recipe> UpdateRecipe(Recipe entity);
+        RepositoryActionResult<Recipe> DeleteRecipe(int id);
 
+        //Recipe Special Methods
+        IQueryable<Recipe> GetRecipesWithIngredients();
         IQueryable<Recipe> GetRecipes(int userId);
 
-        Recipe GetRecipe(int id);
 
-        RepositoryActionResult<Recipe> InsertRecipe(Recipe rc);
+        //User CRUD Methods
+        RepositoryActionResult<User> InsertUser(User entity);
+        IQueryable<User> GetUsers();
+        User GetUser(int id);
+        RepositoryActionResult<User> UpdateUser(User entity);
+        RepositoryActionResult<User> DeleteUser(int id);
 
-        RepositoryActionResult<Recipe> UpdateRecipe(Recipe rc);
+
+        //Ingredient CRUD Method
+        RepositoryActionResult<Ingredient> InsertIngredient(Ingredient entity);
+        IQueryable<Ingredient> GetIngredients();
+        Ingredient GetIngredient(int id);
+        RepositoryActionResult<Ingredient> UpdateIngredient(Ingredient entity);
+        RepositoryActionResult<Ingredient> DeleteIngredient(int id);
+
+
+        //Comment CRUD Method
+        RepositoryActionResult<Comment> InsertComment(Comment entity);
+        IQueryable<Comment> GetComments();
+        Comment GetComment(int id);
+        RepositoryActionResult<Comment> UpdateComment(Comment entity);
+        RepositoryActionResult<Comment> DeleteComment(int id);
+
+
+
 
     }
 }

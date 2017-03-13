@@ -32,30 +32,29 @@ namespace sRecipe.Repository.Concrete
             //modelBuilder.Entity<User>()
             //            .HasOptional(s => s.Profile) // Mark Profile property optional in User entity
             //            .WithRequired(ad => ad.User); // mark Student property as required in Profile entity. Cannot save StudentAddress without Student
-
             modelBuilder.Entity<Recipe>()
                         .HasMany(i => i.Favorites)
-                        .WithRequired()
+                        .WithOptional()
                         .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Recipe>()
                         .HasMany(i => i.MadeIts)
-                        .WithRequired()
+                        .WithOptional()
                         .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Recipe>()
                         .HasMany(i => i.Comments)
-                        .WithRequired()
+                        .WithOptional()
                         .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Recipe>()
                         .HasMany(i => i.Ratings)
-                        .WithRequired()
+                        .WithOptional()
                         .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<MadeIt>()
                        .HasMany(i => i.MadeItProcesses)
-                       .WithRequired()
+                       .WithOptional()
                        .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Profile>()
