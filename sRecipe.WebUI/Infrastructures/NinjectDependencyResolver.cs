@@ -27,6 +27,7 @@ namespace sRecipe.WebUI.Infrastructures
             kernel.Bind<IRecipeRepository>().To<RecipeRepository>();
             kernel.Bind<IUserRepository>().To<UserRepository>();
             kernel.Bind<IErrorLogRepository>().To<ErrorLogRepository>();
+            kernel.Bind<IsRecipeEFRepository>().To<sRecipeEFRepository>();
 
             //Inject FormsAuthentication
             kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();

@@ -120,39 +120,25 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="api\movies\movies.js" />
-    <Content Include="app\app.component.js" />
-    <Content Include="app\app.module.js" />
-    <Content Include="app\app.routing.js" />
     <Content Include="app\assets\images\logo.jpg" />
     <Content Include="app\home\welcome.component.html" />
-    <Content Include="app\home\welcome.component.js" />
-    <Content Include="app\home\WelcomeComponent.js" />
-    <Content Include="app\main.js" />
-    <Content Include="app\movie.js" />
     <Content Include="app\movies\movie-detail.component.html" />
-    <Content Include="app\movies\movie-detail.component.js" />
-    <Content Include="app\movies\movie-filter.pipe.js" />
     <Content Include="app\movies\movie-list.component.css" />
     <Content Include="app\movies\movie-list.component.html" />
-    <Content Include="app\movies\movie-list.component.js" />
-    <Content Include="app\movies\movie.js" />
-    <Content Include="app\movies\movie.module.js" />
-    <Content Include="app\movies\movie.routing.js" />
-    <Content Include="app\movies\movie.service.js" />
+    <Content Include="app\recipes\recipe-detail.component.html" />
+    <Content Include="app\recipes\recipe-list.component.html" />
     <Content Include="app\shared\review.component.css" />
     <Content Include="app\shared\review.component.html" />
-    <Content Include="app\shared\review.component.js" />
-    <Content Include="app\shared\shared.module.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="styles.css" />
-    <Content Include="systemjs.config.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -169,22 +155,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="api\movies\movies.js.map" />
     <Content Include="api\movies\movies.json" />
-    <Content Include="app\app.component.js.map" />
-    <Content Include="app\app.module.js.map" />
-    <Content Include="app\app.routing.js.map" />
-    <Content Include="app\home\welcome.component.js.map" />
-    <Content Include="app\home\WelcomeComponent.js.map" />
-    <Content Include="app\main.js.map" />
-    <Content Include="app\movie.js.map" />
-    <Content Include="app\movies\movie-detail.component.js.map" />
-    <Content Include="app\movies\movie-filter.pipe.js.map" />
-    <Content Include="app\movies\movie-list.component.js.map" />
-    <Content Include="app\movies\movie.js.map" />
-    <Content Include="app\movies\movie.module.js.map" />
-    <Content Include="app\movies\movie.routing.js.map" />
-    <Content Include="app\movies\movie.service.js.map" />
-    <Content Include="app\shared\review.component.js.map" />
-    <Content Include="app\shared\shared.module.js.map" />
     <Content Include="package.json" />
     <Content Include="tsconfig.json" />
     <Content Include="typings.json" />
@@ -197,7 +167,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -213,6 +182,14 @@
     <TypeScriptCompile Include="app\movies\movie.routing.ts" />
     <TypeScriptCompile Include="app\movies\movie.service.ts" />
     <TypeScriptCompile Include="app\movies\movie.ts" />
+    <TypeScriptCompile Include="app\recipes\ingredient.ts" />
+    <TypeScriptCompile Include="app\recipes\recipe-detail.component.ts" />
+    <TypeScriptCompile Include="app\recipes\recipe-filter.pipe.ts" />
+    <TypeScriptCompile Include="app\recipes\recipe-list.component.ts" />
+    <TypeScriptCompile Include="app\recipes\recipe.module.ts" />
+    <TypeScriptCompile Include="app\recipes\recipe.routing.ts" />
+    <TypeScriptCompile Include="app\recipes\recipe.service.ts" />
+    <TypeScriptCompile Include="app\recipes\recipe.ts" />
     <TypeScriptCompile Include="app\shared\review.component.ts" />
     <TypeScriptCompile Include="app\shared\shared.module.ts" />
   </ItemGroup>

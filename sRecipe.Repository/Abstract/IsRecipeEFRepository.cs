@@ -45,7 +45,12 @@ namespace sRecipe.Repository.Abstract
         RepositoryActionResult<Comment> UpdateComment(Comment entity);
         RepositoryActionResult<Comment> DeleteComment(int id);
 
-
+        //MealType CRUD Method
+        RepositoryActionResult<MealType> InsertMealType(MealType entity);
+        IQueryable<MealType> GetMealTypes();
+        MealType GetMealType(int id);
+        RepositoryActionResult<MealType> UpdateMealType(MealType entity);
+        RepositoryActionResult<MealType> DeleteMealType(int id);
 
 
     }

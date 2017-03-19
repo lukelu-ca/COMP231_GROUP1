@@ -245,8 +245,12 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Content\Themes\Default\Default.skin" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="images\books.jpg" />
+    <Content Include="images\books.png" />
+    <Content Include="images\luke.jpg" />
+    <Content Include="images\teamwork.jpg" />
+    <Content Include="images\Theme.png" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -267,7 +271,6 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\Nav\Menu.cshtml" />
-    <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Member\SignUp.cshtml" />
   </ItemGroup>
@@ -282,6 +285,7 @@
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\NavController.cs" />
+    <Compile Include="Controllers\RecipesController.cs" />
     <Compile Include="Controllers\SampleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -310,6 +314,8 @@
     <Compile Include="Infrastructures\Themes\ThemeControllerFactory.cs" />
     <Compile Include="Infrastructures\Themes\ThemeViewEngine.cs" />
     <Compile Include="Infrastructures\ValueProviders\HttpValueProvider.cs" />
+    <Compile Include="Models\DirectionViewModel.cs" />
+    <Compile Include="Models\IngredientViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\MealTypeViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
@@ -329,7 +335,14 @@
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <None Include="Properties\PublishProfiles\sRecipe.pubxml" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
-    <Content Include="Views\Themes\Base\Default\Index.cshtml" />
+    <Content Include="Views\Recipes\Create.cshtml" />
+    <Content Include="Views\Recipes\Delete.cshtml" />
+    <Content Include="Views\Recipes\Details.cshtml" />
+    <Content Include="Views\Recipes\Edit.cshtml" />
+    <Content Include="Views\Recipes\Index.cshtml" />
+    <Content Include="Views\Recipes\Search.cshtml" />
+    <Content Include="Views\Recipes\IngredientList.cshtml" />
+    <Content Include="Views\Recipes\DirectionList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -339,6 +352,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Themes\Base\Default\" />
     <Folder Include="Views\Themes\Default\" />
   </ItemGroup>
   <ItemGroup>
@@ -348,7 +362,7 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\sRecipe.Constants\sRecipe.Constants.csproj">
+    <ProjectReference Include="..\sRecipe.Constants\sRecipe.Constants.csproj">
       <Project>{b3f50395-ff6c-431a-9040-2353e1d8bf69}</Project>
       <Name>sRecipe.Constants</Name>
     </ProjectReference>

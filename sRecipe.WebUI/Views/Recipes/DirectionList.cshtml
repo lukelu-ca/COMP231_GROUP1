@@ -1,0 +1,30 @@
+﻿@model ICollection<sRecipe.WebUI.Models.DirectionViewModel>
+    @{ 
+        var index = 1;
+    }
+<h4>Directions</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Step
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Description)
+            </th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    { 
+        <tr>
+            <td>
+                @index++
+            </td>
+              <td>
+                @Html.DisplayFor(o => item.Description)
+            </td>
+        </tr>
+    }
+
+</table>
+

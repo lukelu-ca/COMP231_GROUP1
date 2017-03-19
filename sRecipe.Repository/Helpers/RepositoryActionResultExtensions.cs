@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +13,11 @@ namespace sRecipe.Repository.Helpers
                 where T : class //the object will be insert, update, delete
                 where D : DbContext //the dbcontext
     {
-        public static RepositoryActionResult<T> Insert(D ctx, DbSet<T> table, T e)
+        public static RepositoryActionResult<T> Insert(D ctx, T e)
         {
             try
             {
-                table.Add(e); //add a object into the table
+                ctx.Set<T>().Add(e); //add a object into the table
                 var result = ctx.SaveChanges(); //save the data
                 if (result > 0)
                 {
@@ -46,7 +47,7 @@ namespace sRecipe.Repository.Helpers
         /// usual using  ctx.table.Where(s => s.Id == id).FirstOrDefault()
         /// </param>
         /// <returns></returns>
-        public static RepositoryActionResult<T> Delete(D ctx, DbSet<T> table, T exp)
+        public static RepositoryActionResult<T> Delete(D ctx, T exp)
         {
             try
             {
@@ -54,7 +55,7 @@ namespace sRecipe.Repository.Helpers
                 if (exp != null)
                 {
                     //if object exist, remove it
-                    table.Remove(exp);
+                    ctx.Set<T>().Remove(exp);
                     ctx.SaveChanges();
                     //return deleted successfully
                     return new RepositoryActionResult<T>(null, RepositoryActionStatus.Deleted);
@@ -80,7 +81,7 @@ namespace sRecipe.Repository.Helpers
         /// the object contains the actual updated values of this class
         /// </param>
         /// <returns></returns>
-        public static RepositoryActionResult<T> Update(D ctx, DbSet<T> table, T exp, T e)
+        public static RepositoryActionResult<T> Update(D ctx, T exp, T e)
         {
             try
             {
@@ -97,14 +98,15 @@ namespace sRecipe.Repository.Helpers
                 // as the entity is already in the dbSet
 
                 // set original entity state to detached
-                ctx.Entry(e).State = EntityState.Detached;
+                //ctx.Entry(e).State = EntityState.Modified;
 
-                // attach & save
-                table.Attach(e);
+                //// attach & save
+                //table.Attach(e);
 
-                // set the updated entity state to modified, so it gets updated.
-                ctx.Entry(e).State = EntityState.Modified;
+                //// set the updated entity state to modified, so it gets updated.
+                //ctx.Entry(e).State = EntityState.Modified;
 
+                ctx.Set<T>().AddOrUpdate(e);
 
                 var result = ctx.SaveChanges();
                 if (result > 0)

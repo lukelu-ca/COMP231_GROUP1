@@ -14,6 +14,7 @@ var http_1 = require("@angular/http");
 var app_routing_1 = require("./app.routing");
 var welcome_component_1 = require("./home/welcome.component");
 var movie_module_1 = require("./movies/movie.module");
+var recipe_module_1 = require("./recipes/recipe.module");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -21,7 +22,7 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [movie_module_1.MovieModule, platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routing_1.routing],
+        imports: [movie_module_1.MovieModule, recipe_module_1.RecipeModule, platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routing_1.routing],
         declarations: [app_component_1.AppComponent, welcome_component_1.WelcomeComponent],
         bootstrap: [app_component_1.AppComponent]
     })

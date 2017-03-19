@@ -15,16 +15,19 @@ namespace sRecipe.WebUI.Infrastructures.Themes
         public override IController CreateController(System.Web.Routing.RequestContext requestContext, string controllerName)
         {
             Controller controller = base.CreateController(requestContext, controllerName) as Controller;
-           
-            string viewTheme=string.Empty;
+
+            string viewTheme = string.Empty;
             string colorTheme = "Default";
 
             if (requestContext.HttpContext.Request.IsAuthenticated && requestContext.HttpContext.User != null)
             {
                 sRecipePrincipal user = requestContext.HttpContext.User as sRecipePrincipal;
-                (controller as ThemeControllerBase).User= user;
-                viewTheme = user.Profile.ViewTheme;
-                colorTheme = user.Profile.ColorTheme;
+                (controller as ThemeControllerBase).User = user;
+                if (user.Profile != null)
+                {
+                    viewTheme = user.Profile.ViewTheme;
+                    colorTheme = user.Profile.ColorTheme;
+                }
             }
             else
             {
@@ -36,7 +39,6 @@ namespace sRecipe.WebUI.Infrastructures.Themes
                 {
                     colorTheme = ConfigurationManager.AppSettings["ColorTheme"];
                 }
-
             }
             controller.ViewBag.ColorTheme = colorTheme;
 

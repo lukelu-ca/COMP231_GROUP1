@@ -34,7 +34,6 @@ namespace sRecipe.Repository.Concrete
         {
             return RepositoryActionResultExtensions<Ingredient, sRecipeContext>
                  .Delete(_ctx,
-                         _ctx.Ingredients,
                          _ctx.Ingredients
                              .Where(s => s.Id == id)
                               .FirstOrDefault()

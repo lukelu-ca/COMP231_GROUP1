@@ -1,16 +1,58 @@
-﻿@model sRecipe.Repository.Entities.Recipe
+﻿@{
+    ViewBag.Title = "Home";
+}
 
-<div class="well">
-    <h3>
-        <strong>@Model.Name</strong>
-        <span class="pull-right label label-primary"> @Model.User.NickName</span>
-    </h3>
-    <span>Ingredients:</span>
-    @if (Model.Ingredients != null)
-    {
-        foreach (var ing in Model.Ingredients)
-        {
-            <span>@ing.Name : @ing.Quantity (@ing.Unit)</span>
-        }
-    }
+<div class="jumbotron">
+    <h2>Share Recipe Application</h2>
+    <p>
+        This is an team project for the course COMP231 Computer Programming Project.<br />
+    </p>
+    <p>According to the instructions, this project is developed by ASP.NET MVC and SQL Server features. </p>
+    <ul>
+        <li>Create ASP.NET MVC Application</li>
+        <li>Support dynamic Theme</li>
+        <li>Realize to Changing Theme programmably</li>
+        <li>Using ASP.NET Ajax, Custom Client and Server Validattion</li>
+        <li>Implement CRUD operation by Entity Framework for SQL Server</li>
+        <li>Develop productive web design page by Bootstrap</li>
+        <li>Connecting to Microsoft Azure SQL Server Database</li>
+        <li>Deploy application to Microsoft Azure</li>
+        <li>Controlling Source Code through Github</li>
+    </ul>
+    <a class="btn btn-primary btn-lg pull-right" href="https://github.com/lukelu6666/COMP231_GROUP1" target="_blank">Get Source Code >>> </a>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>About team members</h3>
+        <ul>
+            <li>Luke Lu</li>
+            <li>Luke Lu</li>
+            <li>Luke Lu</li>
+            <li>Luke Lu</li>
+            <li>Luke Lu</li>
+        </ul>
+        <img src="images/teamwork.jpg" class="img-circle" alt="Cinque Terre" width="304" height="236" />
+    </div>
+    <div class="col-md-4">
+        <h3>Recipe Book</h3>
+        <p>
+            Anonymous user can read all recipes.
+            <br />
+            After signed up, you can share your recipe to all others.
+            For demostration, you can try to use <code>admin</code> and <code>test</code> user to <a href="/account/login">Login</a> the system.
+            <br />
+        </p>
+        <img src="images/books.png" class="img-circle" alt="Cinque Terre" width="304" height="236" />
+    </div>
+    <div class="col-md-4">
+        <h3>Setup</h3>
+        <p>
+            The settings of anonymous user are saved in <code>cookies</code>.<br />
+            The settings of login user are saved in <code>profile</code>.<br />
+            <a href="/Account/setting">Click here to setup a theme</a><br />
+            <br /><br />
+        </p>
+        <img src="images/theme.png" class="img-circle" alt="Cinque Terre" width="304" height="236" />
+    </div>
 </div>

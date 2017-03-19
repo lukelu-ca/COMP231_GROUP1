@@ -14,7 +14,6 @@ namespace sRecipe.Repository.Concrete
         {
             return RepositoryActionResultExtensions<User, sRecipeContext>
                         .Insert(_ctx,
-                                _ctx.Users,
                                 entity
                                 );
         }
@@ -23,7 +22,6 @@ namespace sRecipe.Repository.Concrete
         {
             return RepositoryActionResultExtensions<User, sRecipeContext>
                  .Delete(_ctx,
-                         _ctx.Users,
                          _ctx.Users
                              .Where(s => s.Id == id)
                               .FirstOrDefault()
@@ -35,7 +33,6 @@ namespace sRecipe.Repository.Concrete
         {
             return RepositoryActionResultExtensions<User, sRecipeContext>
                  .Update(_ctx,
-                         _ctx.Users,
                          _ctx.Users
                              .Where(s => s.Id == entity.Id)
                               .FirstOrDefault(),

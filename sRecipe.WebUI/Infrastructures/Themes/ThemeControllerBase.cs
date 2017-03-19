@@ -19,9 +19,39 @@ namespace sRecipe.WebUI.Infrastructures.Themes
     {
         public virtual new sRecipePrincipal User
         {
-            get;
-            set;
+            get
+            {
+                return base.User as sRecipePrincipal;
+            }
+            set
+            { }
         }
+
+        protected List<SelectListItem>
+                        GetSelectListItems<T>(IQueryable<T> list, 
+                        string allText="" , string allValue="0",
+                        string valueProperty = "Id",
+                        string textProperty = "Name")
+        {
+            List<SelectListItem> sList = new List<SelectListItem>();
+            if (allText != "") sList.Add(new SelectListItem()
+            {
+                Text = allText,
+                Value = allValue
+            });
+            foreach (T item in list)
+            {
+                sList.Add(new SelectListItem()
+                {
+                    Text = item.GetType().GetProperty(textProperty).GetValue(item, null).ToString(),
+                    Value = item.GetType().GetProperty(valueProperty).GetValue(item, null).ToString()
+                });
+            }
+            return sList;
+        }
+
+
+
         public ActionResult XML(object model)
         {
             return new XMLResult(model);

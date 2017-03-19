@@ -1,9 +1,12 @@
 ﻿
-@if (User!=null)
+@if (User != null)
 {
-    if (User.Role==sRecipe.Repository.Entities.Role.Administrator)
+    if (User.Role == sRecipe.Repository.Entities.Role.Administrator)
     {
         <ul class="nav navbar-nav navbar-right">
+            <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a></li>
+        </ul>
+            @*<ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;<span runat="server" id="spanUsername"></span><span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -12,11 +15,14 @@
                     <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a></li>
                 </ul>
             </li>
-        </ul>
+        </ul>*@
     }
     else
     {
         <ul class="nav navbar-nav navbar-right">
+            <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a></li>
+        </ul>
+        @*<ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;<span runat="server" id="spanUsername"></span><span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -25,7 +31,7 @@
                     <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a></li>
                 </ul>
             </li>
-        </ul>
+        </ul>*@
     }
 }
 else
@@ -33,7 +39,7 @@ else
     <ul class="nav navbar-nav navbar-right">
         <li><a href="/account/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Login</a></li>
         <li><a href="/member/signup"><span class="glyphicon glyphicon-user"></span>&nbsp;SignUp</a></li>
-        <li><a href="/member/setting"><span class="glyphicon glyphicon-cog"></span>&nbsp;Setting</a></li>
+        @*<li><a href="/member/setting"><span class="glyphicon glyphicon-cog"></span>&nbsp;Setting</a></li>*@
     </ul>
 }
 

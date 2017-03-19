@@ -14,17 +14,17 @@ namespace sRecipe.WebUI.Controllers
 {
     public class DefaultController : ThemeControllerBase
     {
-        IRecipeRepository repository;
-        public DefaultController(IRecipeRepository repo)
+        public DefaultController()
         {
-            this.repository = repo;
         }
 
 
         public ActionResult Index()
         {
-            return View(repository.Recipes.FirstOrDefault());
+            return View();
         }
+
+        #region "JUST SAMPLE"
 
         /// <summary>
         /// Sample action for a membership use
@@ -57,5 +57,6 @@ namespace sRecipe.WebUI.Controllers
             var test = int.Parse("test");
             return View();
         }
+        #endregion
     }
 }

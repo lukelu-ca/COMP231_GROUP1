@@ -1,4 +1,5 @@
 ﻿using sRecipe.API.Helpers;
+using sRecipe.Constants;
 using sRecipe.Constants.Helpers;
 using sRecipe.Repository.Abstract;
 using sRecipe.Repository.Concrete;
@@ -10,6 +11,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Routing;
 
 namespace sRecipe.API.Controllers

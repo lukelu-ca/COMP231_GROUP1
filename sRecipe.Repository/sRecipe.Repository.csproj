@@ -70,6 +70,7 @@
     <Compile Include="Concrete\EFRepositoryPartials\Ingredient.cs" />
     <Compile Include="Concrete\EFRepositoryPartials\Recipe.cs" />
     <Compile Include="Concrete\EFRepositoryPartials\Comment.cs" />
+    <Compile Include="Concrete\EFRepositoryPartials\MealType.cs" />
     <Compile Include="Concrete\EFRepositoryPartials\User.cs" />
     <Compile Include="Concrete\ErrorLogRepository.cs" />
     <Compile Include="Concrete\RecipeRepository.cs" />

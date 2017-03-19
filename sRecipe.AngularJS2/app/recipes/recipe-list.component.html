@@ -1,0 +1,61 @@
+﻿<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+    <!-- search -->
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-2'>Search:</div>
+            <div class='col-md-4'>
+                <input type='text' [(ngModel)]="listFilter" />
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-md-6' *ngIf='listFilter'> 
+                <h3>Searching: {{listFilter}}</h3>
+            </div>
+        </div>
+        <!-- table -->
+        <div class='table-responsive'>
+            <table class='table' *ngIf='recipes && recipes.length'>
+                <thead>
+                    <tr>
+                        <th>
+                            <button class='btn btn-primary' (click)='toggleImage()' >
+                                {{seePoster ? 'Hide' : 'See'}} Picture
+                            </button>
+                        </th>
+                        <th>Name</th>
+                        <th>Meal Type</th>
+                        <th>Cooking Time</th>
+                        <th>Post Time</th>
+                        <th>Viewed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let recipe of recipes | recipeFilter:listFilter">
+                        <td>
+                            <img *ngIf='seePoster'  
+                                 [src]='recipe.imageUrl'
+                                 [title]='recipe.name'
+                                 [style.width.px]='imageWidth'
+                                 [style.margin.px]='imageMargin' 
+                            />
+                        </td>
+                        <td>
+                            <a [routerLink]="['/recipe', recipe.id]">
+                                {{recipe.name}}
+                            </a>
+                        </td>
+                        <td>{{recipe.mealType.name | uppercase}}</td>
+                        <td>{{recipe.cooking_Time}}</td>
+                        <td>{{recipe.postTime}}</td>
+                        <td>{{recipe.viewed}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -16,9 +16,23 @@ namespace sRecipe.WebUI.App_Start
             {
                 config.CreateMap<UserViewModel, User>()
                        .ReverseMap();
-
-                config.CreateMap<RecipeViewModel, Recipe>()
+                config.CreateMap<IngredientViewModel, Ingredient>()
                        .ReverseMap();
+                config.CreateMap<DirectionViewModel, Direction>()
+                       .ReverseMap();
+
+                config.CreateMap<Recipe, RecipeViewModel>()
+                        .ForMember(dest => dest.MealTypeName,
+                                    opts => opts.MapFrom(src => src.MealType.Name)
+                                    )
+                        .ForMember(dest => dest.UserName,
+                                    opts => opts.MapFrom(src => src.User.NickName)
+                                    )
+                        .ForMember(dest => dest.Ingredients,
+                                    opts => opts.MapFrom(src => src.Ingredients)
+                                    )
+                        ;
+                config.CreateMap<RecipeViewModel, Recipe>();
 
                 config.CreateMap<MealTypeViewModel, MealType>()
                        .ReverseMap();

@@ -45,8 +45,15 @@ namespace sRecipe.Repository.Concrete
         }
         public void CreateUser(User user)
         {
-                context.Users.Add(user);
-                context.SaveChanges();
+            user.Profile = new Profile()
+            {
+                UserId = user.Id,
+                Location = "",
+                ColorTheme = "Default",
+                ViewTheme = "Base"
+            };
+            context.Users.Add(user);
+            context.SaveChanges();
         }
 
         public User GetUserByEmail(string email)
@@ -54,7 +61,7 @@ namespace sRecipe.Repository.Concrete
             return Users.FirstOrDefault(s => s.Email == email);
         }
 
- 
+
         /// <summary>
         /// Check whether the email has already signed up
         /// </summary>

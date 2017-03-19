@@ -1,0 +1,100 @@
+﻿@model IQueryable<sRecipe.WebUI.Models.RecipeViewModel>
+
+@{
+    ViewBag.Title = "Recipe Lists";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All Recipe</h2>
+<p>
+    @if (User != null)
+    {
+        @Html.ActionLink("Create New", "Create")
+        @:|
+        @Html.ActionLink("Show All Public Recipes", "Index", new { onlyOwner = false })
+        @:|
+        @Html.ActionLink("Only Show My Recipes", "Index", new { onlyOwner = true })
+    }
+</p>
+@if (Model.FirstOrDefault() != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Cooking_Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Number_of_Services)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Calorie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().MealTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Viewed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().PostTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().isPublic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().UserName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cooking_Time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number_of_Services)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Calorie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MealTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Viewed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isPublic)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+
+                    @if (User != null && (item.UserId == User.UserId || User.Role == sRecipe.Repository.Entities.Role.Administrator))
+                    {
+                        @:|
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                        @:|
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+
+                    }
+
+                </td>
+            </tr>
+        }
+
+    </table>
+}
