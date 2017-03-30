@@ -10,40 +10,40 @@ namespace sRecipe.Repository.Concrete
     public partial class sRecipeEFRepository : IsRecipeEFRepository
     {
 
-        #region Ingredient CRUD
-        public RepositoryActionResult<Ingredient> InsertIngredient(Ingredient entity)
+        #region Direction CRUD
+        public RepositoryActionResult<Direction> InsertDirection(Direction entity)
         {
-            return RepositoryActionResultExtensions<Ingredient, sRecipeContext>
+            return RepositoryActionResultExtensions<Direction, sRecipeContext>
                         .Insert(_ctx,
                                 entity
                                 );
         }
 
-        public IQueryable<Ingredient> GetIngredients()
+        public IQueryable<Direction> GetDirections()
         {
-            return _ctx.Ingredients;
+            return _ctx.Directions;
         }
 
-        public Ingredient GetIngredient(int id)
+        public Direction GetDirection(int id)
         {
-            return _ctx.Ingredients.Where(s => s.Id == id).FirstOrDefault();
+            return _ctx.Directions.Where(s => s.Id == id).FirstOrDefault();
         }
 
-        public RepositoryActionResult<Ingredient> UpdateIngredient(Ingredient entity)
+        public RepositoryActionResult<Direction> UpdateDirection(Direction entity)
         {
-            return RepositoryActionResultExtensions<Ingredient, sRecipeContext>
+            return RepositoryActionResultExtensions<Direction, sRecipeContext>
                  .Update(_ctx,
-                         _ctx.Ingredients
+                         _ctx.Directions
                              .Where(s => s.Id == entity.Id)
                               .FirstOrDefault(),
                          entity
                          );
         }
-        public RepositoryActionResult<Ingredient> DeleteIngredient(int id)
+        public RepositoryActionResult<Direction> DeleteDirection(int id)
         {
-            return RepositoryActionResultExtensions<Ingredient, sRecipeContext>
+            return RepositoryActionResultExtensions<Direction, sRecipeContext>
                  .Delete(_ctx,
-                         _ctx.Ingredients
+                         _ctx.Directions
                              .Where(s => s.Id == id)
                               .FirstOrDefault()
                          );

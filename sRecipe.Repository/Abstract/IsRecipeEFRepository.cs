@@ -52,6 +52,12 @@ namespace sRecipe.Repository.Abstract
         RepositoryActionResult<MealType> UpdateMealType(MealType entity);
         RepositoryActionResult<MealType> DeleteMealType(int id);
 
+        //Direction CRUD Method
+        RepositoryActionResult<Direction> InsertDirection(Direction entity);
+        IQueryable<Direction> GetDirections();
+        Direction GetDirection(int id);
+        RepositoryActionResult<Direction> UpdateDirection(Direction entity);
+        RepositoryActionResult<Direction> DeleteDirection(int id);
 
     }
 }

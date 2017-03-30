@@ -1,0 +1,56 @@
+﻿@model sRecipe.WebUI.Models.IngredientListViewModel
+<h4>Ingredients</h4>
+@using (Html.BeginForm())
+{
+
+    @Html.HiddenFor(model => Model.RecipeId)
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => Model.Items.FirstOrDefault().Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => Model.Items.FirstOrDefault().Unit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => Model.Items.FirstOrDefault().Quantity)
+                </th>
+            </tr>
+        </thead>
+        @for (int i = 0; i < Model.Items.Count(); i++)
+        {
+            <tr>
+                <td>
+                    @Html.HiddenFor(model => Model.Items[i].Id)
+
+
+                    @Html.TextBoxFor(o => Model.Items[i].Name)
+                    @Html.ValidationMessageFor(model => Model.Items[i].Name)
+
+
+                </td>
+                <td>
+                    @Html.TextBoxFor(o => Model.Items[i].Unit)
+                    @Html.ValidationMessageFor(model => Model.Items[i].Unit)
+                </td>
+                <td>
+                    @Html.TextBoxFor(o => Model.Items[i].Quantity)
+                    @Html.ValidationMessageFor(model => Model.Items[i].Quantity)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="form-group">
+        <input type="submit"
+               class="btn btn-sm btn-info"
+               name="action:AddIngredient"
+               value="Add Ingredient" />
+
+        <input type="submit"
+               class="btn btn-primary btn-sm"
+               name="action:SaveIngredient"
+               value="Save Ingredient" />
+    </div>
+}

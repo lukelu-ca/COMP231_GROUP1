@@ -87,9 +87,21 @@
 </div>
 @if (User != null && (User.UserId == Model.UserId || User.Role == sRecipe.Repository.Entities.Role.Administrator))
 {
-    @Html.Partial("DirectionList", Model.Directions)
+    Html.RenderAction("Edit", "Directions", new { recipeId = Model.Id });
 
-    @Html.Partial("IngredientList", Model.Ingredients)
+    Html.RenderAction("Edit", "Ingredients", new { recipeId = Model.Id });
+
+    Html.RenderAction("List", "Comments", new { recipeId = Model.Id, owner = true });
+
+}
+else
+{
+    Html.RenderAction("List", "Directions", new { recipeId = Model.Id });
+
+    Html.RenderAction("List", "Ingredients", new { recipeId = Model.Id });
+
+    Html.RenderAction("List", "Comments", new { recipeId = Model.Id, owner = false });
+
 }
 
 <p>

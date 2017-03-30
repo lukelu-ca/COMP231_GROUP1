@@ -20,6 +20,13 @@ namespace sRecipe.WebUI.App_Start
                        .ReverseMap();
                 config.CreateMap<DirectionViewModel, Direction>()
                        .ReverseMap();
+                config.CreateMap<CommentViewModel, Comment>();
+
+                config.CreateMap<Comment, CommentViewModel>()
+                      .ForMember(dest => dest.NickName,
+                                 opts => opts.MapFrom(src => src.User.NickName));
+
+
 
                 config.CreateMap<Recipe, RecipeViewModel>()
                         .ForMember(dest => dest.MealTypeName,
@@ -27,9 +34,6 @@ namespace sRecipe.WebUI.App_Start
                                     )
                         .ForMember(dest => dest.UserName,
                                     opts => opts.MapFrom(src => src.User.NickName)
-                                    )
-                        .ForMember(dest => dest.Ingredients,
-                                    opts => opts.MapFrom(src => src.Ingredients)
                                     )
                         ;
                 config.CreateMap<RecipeViewModel, Recipe>();

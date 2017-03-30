@@ -67,6 +67,7 @@
     <Compile Include="Attributes\DateTimeExtensions.cs" />
     <Compile Include="Attributes\DefaultDateTimeValue.cs" />
     <Compile Include="Concrete\DbInitializer.cs" />
+    <Compile Include="Concrete\EFRepositoryPartials\Direction.cs" />
     <Compile Include="Concrete\EFRepositoryPartials\Ingredient.cs" />
     <Compile Include="Concrete\EFRepositoryPartials\Recipe.cs" />
     <Compile Include="Concrete\EFRepositoryPartials\Comment.cs" />

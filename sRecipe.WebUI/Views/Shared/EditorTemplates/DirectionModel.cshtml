@@ -1,0 +1,12 @@
+﻿@model sRecipe.WebUI.Models.DirectionViewModel
+<tr>
+    <td>
+        @Html.HiddenFor(model => model.Id)
+        @Html.TextBoxFor(model => model.Order)
+        @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
+    </td>
+    <td>
+        @Html.TextAreaFor(model => model.Description, new { @rows = 3, @class = "col-xs-10" })
+        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+    </td>
+</tr>

@@ -14,10 +14,9 @@ namespace sRecipe.WebUI.Controllers
 {
     public class DefaultController : ThemeControllerBase
     {
-        public DefaultController()
+        public DefaultController(IsRecipeEFRepository repo) : base(repo)
         {
         }
-
 
         public ActionResult Index()
         {

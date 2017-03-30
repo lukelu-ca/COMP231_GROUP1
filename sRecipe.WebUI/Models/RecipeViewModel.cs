@@ -29,7 +29,5 @@ namespace sRecipe.WebUI.Models
         [Display(Name="Submitted By")]
         public string UserName { get; set; }
 
-        public ICollection<IngredientViewModel> Ingredients { get; set; }
-        public ICollection<DirectionViewModel> Directions { get; set; }
     }
 }

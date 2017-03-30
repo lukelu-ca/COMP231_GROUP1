@@ -12,6 +12,10 @@ namespace sRecipe.WebUI.Controllers
 {
     public class NavController : ThemeControllerBase
     {
+        public NavController(IsRecipeEFRepository repo) : base(repo)
+        {
+        }
+
         public PartialViewResult Menu()
         {
             return PartialView();

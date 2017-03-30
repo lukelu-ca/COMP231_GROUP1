@@ -15,11 +15,15 @@ namespace sRecipe.WebUI.Controllers
     public class AccountController : ThemeControllerBase
     {
         IAuthProvider _authProvider;
-        IUserRepository _repo;
-        public AccountController(IAuthProvider auth, IUserRepository repo)
+        IUserRepository _urepo;
+
+        public AccountController(IAuthProvider auth,
+                IUserRepository urepo, 
+                IsRecipeEFRepository repo)
+                :base(repo) 
         {
             _authProvider = auth;
-            _repo = repo;
+            _urepo = urepo;
         }
 
         public ViewResult Login()
@@ -39,13 +43,13 @@ namespace sRecipe.WebUI.Controllers
                 if (_authProvider.Authenticate(model.Email, model.Password))
                 {
                     data.Success = true;
-                    _repo.CreateLog(data);
+                    _urepo.CreateLog(data);
                     return Redirect(returnUrl ?? Url.Action("Index", "Default"));
                 }
                 else
                 {
                     data.Success = false;
-                    _repo.CreateLog(data);
+                    _urepo.CreateLog(data);
                     ModelState.AddModelError("", "Incorrect username or password");
                     return View();
                 }

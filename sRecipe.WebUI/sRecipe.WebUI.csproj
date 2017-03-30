@@ -217,6 +217,7 @@
     <Content Include="Content\Themes\Darkly\StyleSheet.css" />
     <Content Include="Content\Themes\Dark\bootstrap.min.css" />
     <Content Include="Content\Themes\Dark\StyleSheet.css" />
+    <Content Include="Content\Themes\Default\bootstrap.min.css" />
     <Content Include="Content\Themes\Default\StyleSheet.css" />
     <Content Include="Content\Themes\Flatly\bootstrap.min.css" />
     <Content Include="Content\Themes\Flatly\StyleSheet.css" />
@@ -245,6 +246,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="Properties\PublishProfiles\sRecipe - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="images\books.jpg" />
     <Content Include="images\books.png" />
@@ -282,7 +284,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\DirectionsController.cs" />
+    <Compile Include="Controllers\IngredientsController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
@@ -302,6 +307,7 @@
     <Compile Include="Infrastructures\Filters\ExceptionLoggingFilter.cs" />
     <Compile Include="Infrastructures\Filters\HttpAuthenticate.cs" />
     <Compile Include="Infrastructures\Filters\IsRecipeMobile.cs" />
+    <Compile Include="Infrastructures\Filters\MultipleButtonAttribute.cs" />
     <Compile Include="Infrastructures\Filters\NoCacheAttribute.cs" />
     <Compile Include="Infrastructures\Filters\RecipeWorkflowFilter.cs" />
     <Compile Include="Infrastructures\Filters\RecipeWorkflowValues.cs" />
@@ -314,6 +320,11 @@
     <Compile Include="Infrastructures\Themes\ThemeControllerFactory.cs" />
     <Compile Include="Infrastructures\Themes\ThemeViewEngine.cs" />
     <Compile Include="Infrastructures\ValueProviders\HttpValueProvider.cs" />
+    <Compile Include="Models\BaseListViewModel.cs" />
+    <Compile Include="Models\CommentViewModel.cs" />
+    <Compile Include="Models\CommentListViewModel.cs" />
+    <Compile Include="Models\IngredientListViewModel.cs" />
+    <Compile Include="Models\DirectionListViewModel.cs" />
     <Compile Include="Models\DirectionViewModel.cs" />
     <Compile Include="Models\IngredientViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
@@ -341,8 +352,12 @@
     <Content Include="Views\Recipes\Edit.cshtml" />
     <Content Include="Views\Recipes\Index.cshtml" />
     <Content Include="Views\Recipes\Search.cshtml" />
-    <Content Include="Views\Recipes\IngredientList.cshtml" />
-    <Content Include="Views\Recipes\DirectionList.cshtml" />
+    <Content Include="Views\Ingredients\List.cshtml" />
+    <Content Include="Views\Directions\List.cshtml" />
+    <Content Include="Views\Directions\EditList.cshtml" />
+    <Content Include="Views\Ingredients\EditList.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DirectionModel.cshtml" />
+    <Content Include="Views\Comments\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

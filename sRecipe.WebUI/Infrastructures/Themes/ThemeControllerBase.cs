@@ -2,6 +2,7 @@
 using sRecipe.Repository.Abstract;
 using sRecipe.Repository.Concrete;
 using sRecipe.Repository.Entities;
+using sRecipe.WebUI.Controllers;
 using sRecipe.WebUI.Infrastructures.ActionResults;
 using sRecipe.WebUI.Infrastructures.Concrete;
 using System;
@@ -17,6 +18,14 @@ namespace sRecipe.WebUI.Infrastructures.Themes
 {
     public abstract class ThemeControllerBase : Controller
     {
+        protected IsRecipeEFRepository _repo;
+
+        protected ThemeControllerBase(IsRecipeEFRepository repo)
+        {
+            _repo = repo;
+
+        }
+
         public virtual new sRecipePrincipal User
         {
             get

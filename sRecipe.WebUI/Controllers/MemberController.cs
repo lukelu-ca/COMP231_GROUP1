@@ -14,9 +14,9 @@ namespace sRecipe.WebUI.Controllers
     {
         IUserRepository UserRepo;
 
-        public MemberController(IUserRepository repo)
+        public MemberController(IUserRepository urepo, IsRecipeEFRepository repo) :base(repo)
         {
-            this.UserRepo = repo;
+            this.UserRepo = urepo;
         }
         public ViewResult SignUp()
         {

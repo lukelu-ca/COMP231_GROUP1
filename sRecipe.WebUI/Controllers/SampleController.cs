@@ -16,18 +16,17 @@ namespace sRecipe.WebUI.Controllers
 {
     public class SampleController : ThemeControllerBase
     {
-        private IRecipeRepository _repo;
         private sRecipeContext _context;
-        public SampleController(IRecipeRepository repo)
+
+        public SampleController(IsRecipeEFRepository repo) : base(repo)
         {
-            _repo = repo;
             _context = new sRecipeContext();
         }
 
         [AdminAuth]
         public ActionResult RecipeXML()
         {
-            var recipes = _repo.Recipes.ToList();
+            var recipes = _repo.GetRecipes().ToList();
             return new XMLResult(Mapper.Map<List<Recipe>, List<RecipeViewModel>>(recipes));
         }
 
@@ -60,7 +59,7 @@ namespace sRecipe.WebUI.Controllers
         }
         public ActionResult RecipeCSV()
         {
-            var recipes = _repo.Recipes.ToList();
+            var recipes = _repo.GetRecipes().ToList();
             return new CSVResult(Mapper.Map<List<Recipe>, List<RecipeViewModel>>(recipes), "TestCSV");
         }
     }

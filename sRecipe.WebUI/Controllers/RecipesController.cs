@@ -13,16 +13,15 @@ using AutoMapper;
 using sRecipe.Repository.Entities;
 using sRecipe.WebUI.Infrastructures.Themes;
 using AutoMapper.QueryableExtensions;
+using sRecipe.WebUI.Infrastructures.Filters;
 
 namespace sRecipe.WebUI.Controllers
 {
     public class RecipesController : ThemeControllerBase
     {
-        private IsRecipeEFRepository _repo;
 
-        public RecipesController(IsRecipeEFRepository repo)
+        public RecipesController(IsRecipeEFRepository repo) : base(repo)
         {
-            _repo = repo;
             ViewData["MealTypeList"] = GetSelectListItems
                             (_repo.GetMealTypes()
                                 .ProjectTo<MealTypeViewModel>()
@@ -105,6 +104,116 @@ namespace sRecipe.WebUI.Controllers
             }
             ViewBag.ReturnSearch = returnSearch;
             return View(recipeViewModel);
+        }
+
+
+        [Authorize]
+        [HttpPost]
+        [MultipleButton(Name = "action", Argument = "SaveDirection")]
+        public ActionResult SaveDirection(DirectionListViewModel vm)
+        {
+            foreach (DirectionViewModel item in vm.Items)
+            {
+                Direction e = Mapper.Map<DirectionViewModel, Direction>(item);
+                e.RecipeId = vm.RecipeId;
+                if (e.Id == 0)
+                {
+                    _repo.InsertDirection(e);
+                }
+                else
+                {
+                    _repo.UpdateDirection(e);
+                }
+            }
+
+            return RedirectToAction("details", new { id = vm.RecipeId });
+        }
+
+
+        [Authorize]
+        [HttpPost]
+        [MultipleButton(Name = "action", Argument = "AddIngredient")]
+        public ActionResult AddIngredient(DirectionListViewModel vm)
+        {
+            TempData["AddIngredient"] = true;
+            return RedirectToAction("details", new { id = vm.RecipeId });
+        }
+
+        [Authorize]
+        [HttpPost]
+        [MultipleButton(Name = "action", Argument = "SaveIngredient")]
+        public ActionResult SaveIngredient(IngredientListViewModel vm)
+        {
+            foreach (IngredientViewModel item in vm.Items)
+            {
+                Ingredient e = Mapper.Map<IngredientViewModel, Ingredient>(item);
+                e.RecipeId = vm.RecipeId;
+                if (e.Id == 0)
+                {
+                    _repo.InsertIngredient(e);
+                }
+                else
+                {
+                    _repo.UpdateIngredient(e);
+                }
+            }
+
+            return RedirectToAction("details", new { id = vm.RecipeId });
+        }
+
+        [Authorize]
+        [HttpPost]
+        [MultipleButton(Name = "action", Argument = "AddDirection")]
+        public ActionResult AddDirection(DirectionListViewModel vm)
+        {
+            TempData["AddDirection"] = true;
+            return RedirectToAction("details", new { id = vm.RecipeId });
+        }
+
+
+        [Authorize]
+        [HttpPost]
+        [MultipleButton(Name = "action", Argument = "SaveComment")]
+        public ActionResult SaveComment(CommentListViewModel vm)
+        {
+            foreach (CommentViewModel item in vm.Items)
+            {
+                Comment e = Mapper.Map<CommentViewModel, Comment>(item);
+                if (e.Id == 0)
+                {
+                   // _repo.in(e);
+                }
+                else
+                {
+                    _repo.UpdateComment(e);
+                }
+            }
+
+            return RedirectToAction("details", new { id = vm.RecipeId });
+        }
+
+        [Authorize]
+        [HttpPost]
+        [MultipleButton(Name = "action", Argument = "AddComment")]
+        public ActionResult AddComment(CommentListViewModel vm)
+        {
+            foreach (CommentViewModel item in vm.Items)
+            {
+                Comment e = Mapper.Map<CommentViewModel, Comment>(item);
+                e.RecipeId = vm.RecipeId;
+                e.UserId = User.UserId;
+                e.PostTime = DateTime.Now;
+                if (e.Id == 0)
+                {
+                     _repo.InsertComment(e);
+                }
+                else
+                {
+                    //_repo.UpdateComment(e);
+                }
+            }
+
+            return RedirectToAction("details", new { id = vm.RecipeId });
         }
 
         [Authorize]
