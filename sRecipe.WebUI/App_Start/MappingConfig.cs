@@ -20,6 +20,8 @@ namespace sRecipe.WebUI.App_Start
                        .ReverseMap();
                 config.CreateMap<DirectionViewModel, Direction>()
                        .ReverseMap();
+                config.CreateMap<RecipePictureViewModel,Picture>()
+                      .ReverseMap();
                 config.CreateMap<CommentViewModel, Comment>();
 
                 config.CreateMap<Comment, CommentViewModel>()

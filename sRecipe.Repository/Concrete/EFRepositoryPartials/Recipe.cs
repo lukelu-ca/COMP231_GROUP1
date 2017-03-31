@@ -63,6 +63,14 @@ namespace sRecipe.Repository.Concrete
         {
             return _ctx.Recipes.Include("Ingredients");
         }
+
+        public void SetRecipePicture(int recipeId, int pictureId)
+        {
+            Recipe entity = GetRecipe(recipeId);
+            entity.PictureId = pictureId;
+            UpdateRecipe(entity);
+        }
+
         #endregion
     }
 }

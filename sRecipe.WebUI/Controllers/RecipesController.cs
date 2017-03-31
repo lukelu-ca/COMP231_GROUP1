@@ -229,7 +229,8 @@ namespace sRecipe.WebUI.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Cooking_Time,Number_of_Services,Calorie,MealTypeId,Viewed,PostTime,isPublic,PictureId,UserId")] RecipeViewModel recipeViewModel)
+        public ActionResult Create([Bind(Include = "Id,Name,Cooking_Time,Number_of_Services,Calorie,MealTypeId,Viewed,PostTime,isPublic,PictureId,UserId")]
+                    RecipeViewModel recipeViewModel)
         {
             if (ModelState.IsValid)
             {

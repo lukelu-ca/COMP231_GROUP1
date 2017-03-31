@@ -26,6 +26,10 @@ namespace sRecipe.WebUI.Controllers
             _urepo = urepo;
         }
 
+        public ViewResult SelectTheme()
+        {
+            return View();
+        }
         public ViewResult Login()
         {
             return View();

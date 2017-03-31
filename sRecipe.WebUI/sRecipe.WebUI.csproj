@@ -290,6 +290,7 @@
     <Compile Include="Controllers\IngredientsController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\NavController.cs" />
+    <Compile Include="Controllers\PictureController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
     <Compile Include="Controllers\SampleController.cs" />
     <Compile Include="Global.asax.cs">
@@ -328,6 +329,7 @@
     <Compile Include="Models\DirectionViewModel.cs" />
     <Compile Include="Models\IngredientViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\RecipePictureViewModel.cs" />
     <Compile Include="Models\MealTypeViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\RecipesListViewModel.cs" />
@@ -358,6 +360,7 @@
     <Content Include="Views\Ingredients\EditList.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DirectionModel.cshtml" />
     <Content Include="Views\Comments\List.cshtml" />
+    <Content Include="Views\Picture\Upload.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -69,6 +69,7 @@
     <Compile Include="Concrete\DbInitializer.cs" />
     <Compile Include="Concrete\EFRepositoryPartials\Direction.cs" />
     <Compile Include="Concrete\EFRepositoryPartials\Ingredient.cs" />
+    <Compile Include="Concrete\EFRepositoryPartials\Picture.cs" />
     <Compile Include="Concrete\EFRepositoryPartials\Recipe.cs" />
     <Compile Include="Concrete\EFRepositoryPartials\Comment.cs" />
     <Compile Include="Concrete\EFRepositoryPartials\MealType.cs" />

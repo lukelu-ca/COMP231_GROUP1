@@ -1,39 +1,30 @@
-﻿<div class="panel panel-primary" *ngIf='movie'>
+﻿<div class="panel panel-primary" *ngIf='recipe'>
     <div class="panel-heading">
-        {{pageTitle  + ': ' + movie.movieName}}
+        {{pageTitle  + ': ' + recipe.name}}
     </div>
     <div class='panel-body'>
         <div class='row'>
             <div class='col-md-6'>
                 <div class='row'>
-                    <div class='col-md-3'>Name:</div>
-                    <div class='col-md-6'>{{movie.movieName}}</div>
+                    <div class='col-md-3'>MealType:</div>
+                    <div class='col-md-6'>{{recipe.mealType}}</div>
                 </div>
                 <div class='row'>
-                    <div class='col-md-3'>Description:</div>
-                    <div class='col-md-6'>{{movie.description}}</div>
+                    <div class='col-md-3'>Cooking Time:</div>
+                    <div class='col-md-6'>{{recipe.cooking_Time}}</div>
                 </div>
                 <div class='row'>
-                    <div class='col-md-3'>Availability:</div>
-                    <div class='col-md-6'>{{movie.releaseDate}}</div>
+                    <div class='col-md-3'>calorie:</div>
+                    <div class='col-md-6'>{{recipe.calorie}}</div>
                 </div>
-                <div class='row'>
-                    <div class='col-md-3'>Price:</div>
-                    <div class='col-md-6'>{{movie.price|currency:'USD':true}}</div>
-                </div>
-                <div class='row'>
-                    <div class='col-md-3'>Reviews:</div>
-                    <div class='col-md-6'>
-                       
-                    </div>
-                </div>
+
             </div>
             <div class='col-md-6'>
                 <img class='center-block img-responsive'
                      [style.width.px]='200'
                      [style.margin.px]='2'
-                     [src]='movie.imageUrl'
-                     [title]='movie.movieName'>
+                     [src]='recipe.imageUrl'
+                     [title]='recipe.name'>
             </div>
         </div>
     </div>

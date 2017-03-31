@@ -16,9 +16,11 @@ namespace sRecipe.Repository.Abstract
         Recipe GetRecipe(int id);
         RepositoryActionResult<Recipe> UpdateRecipe(Recipe entity);
         RepositoryActionResult<Recipe> DeleteRecipe(int id);
+        void SetRecipePicture(int recipeId, int pictureId);
 
-        //Recipe Special Methods
-        IQueryable<Recipe> GetRecipesWithIngredients();
+
+       //Recipe Special Methods
+       IQueryable<Recipe> GetRecipesWithIngredients();
         IQueryable<Recipe> GetRecipes(int userId);
 
 
@@ -58,6 +60,14 @@ namespace sRecipe.Repository.Abstract
         Direction GetDirection(int id);
         RepositoryActionResult<Direction> UpdateDirection(Direction entity);
         RepositoryActionResult<Direction> DeleteDirection(int id);
+
+        //Picture CRUD Method
+        RepositoryActionResult<Picture> InsertPicture(Picture entity);
+        IQueryable<Picture> GetPictures();
+        Picture GetPicture(int id);
+        RepositoryActionResult<Picture> UpdatePicture(Picture entity);
+        RepositoryActionResult<Picture> DeletePicture(int id);
+
 
     }
 }

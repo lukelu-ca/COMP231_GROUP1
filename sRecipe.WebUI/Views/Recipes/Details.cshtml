@@ -74,14 +74,30 @@
         <dd>
             @Html.DisplayFor(model => model.isPublic)
         </dd>
+        @if (Model.PictureId==null || Model.PictureId == 0)
+        {
+            <dt>
 
-        @*<dt>
-                @Html.DisplayNameFor(model => model.PictureId)
-            </dt>*@
+            </dt>
 
-        @*<dd>
-                @Html.DisplayFor(model => model.PictureId)
-            </dd>*@
+            <dd>
+                No Image
+
+            </dd>
+        }
+        else
+
+        {
+            <dt>
+
+            </dt>
+
+            <dd>
+                <img class="img-thumbnail" width="150" height="150"
+                     src="@Url.Action("GetPicture", "Picture", new {pictureId=Model.PictureId})" />
+            </dd>
+        }
+
 
     </dl>
 </div>
