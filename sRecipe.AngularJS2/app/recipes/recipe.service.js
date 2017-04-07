@@ -18,6 +18,7 @@ var RecipeService = (function () {
     function RecipeService(_http) {
         this._http = _http;
         this._recipeUrl = 'http://localhost:9439/api/recipes';
+        this._recipeDetailUrl = 'http://localhost:9439/api/recipe/';
     }
     RecipeService.prototype.getRecipes = function () {
         return this._http.get(this._recipeUrl)
@@ -31,8 +32,10 @@ var RecipeService = (function () {
     };
     // added for routing
     RecipeService.prototype.getRecipe = function (id) {
-        return this.getRecipes()
-            .map(function (recipes) { return recipes.find(function (m) { return m.id === id; }); });
+        return this._http.get(this._recipeUrl)
+            .map(function (response) { return response.json(); })
+            .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
+            .catch(this.handleError);
     };
     return RecipeService;
 }());

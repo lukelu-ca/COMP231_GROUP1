@@ -9,6 +9,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class RecipeService {
     private _recipeUrl = 'http://localhost:9439/api/recipes';
+    private _recipeDetailUrl = 'http://localhost:9439/api/recipe/';
     constructor(private _http: Http) { }
 
     getRecipes(): Observable<IRecipe[]> {
@@ -25,8 +26,10 @@ export class RecipeService {
 
     // added for routing
     getRecipe(id: number): Observable<IRecipe> {
-        return this.getRecipes()
-            .map((recipes: IRecipe[]) => recipes.find(m => m.id === id));
+ return this._http.get(this._recipeUrl)
+            .map((response: Response) => <IRecipe[]>response.json())
+            .do(data => console.log("All: " + JSON.stringify(data)))
+            .catch(this.handleError);
     }
 
 }

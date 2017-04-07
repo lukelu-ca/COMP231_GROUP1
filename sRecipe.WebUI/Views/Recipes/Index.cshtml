@@ -21,6 +21,9 @@
     <table class="table">
         <tr>
             <th>
+                Image
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
             </th>
             <th>
@@ -36,15 +39,6 @@
                 @Html.DisplayNameFor(model => model.FirstOrDefault().MealTypeName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().Viewed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().PostTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().isPublic)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.FirstOrDefault().UserName)
             </th>
             <th></th>
@@ -53,6 +47,13 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td>
+                    @if (item.PictureId != null)
+                    {
+                        <img class="img-thumbnail" width="50" height="50"
+                             src="@Url.Action("GetPicture", "Picture", new {pictureId=item.PictureId})" />
+                    }
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
@@ -67,15 +68,6 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.MealTypeName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Viewed)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PostTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.isPublic)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.UserName)
