@@ -1,0 +1,63 @@
+<div class="panel panel-primary" *ngIf="recipe">
+    <div class="panel-heading" style="font-size:large">
+        {{pageTitle + ": " + recipe.name}}
+    </div>
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-3">Name:</div>
+                    <div class="col-md-6">{{recipe.name}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">Cooking Time:</div>
+                    <div class="col-md-6">{{recipe.cooking_Time}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">Number of Services:</div>
+                    <div class="col-md-6">{{recipe.number_of_Services}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">Calorie:</div>
+                    <div class="col-md-6">{{recipe.calorie}}</div>
+                </div>
+               <div class="row">
+                    <div class="col-md-3">Meal Type:</div>
+                    <div class="col-md-6">{{recipe.mealTypeName}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">Post Time:</div>
+                    <div class="col-md-6">{{recipe.postTime}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">Submitted By:</div>
+                    <div class="col-md-6">{{recipe.userName}}</div>
+                </div>          
+                <div class="row">
+                    <div class="col-md-3">Is Public</div>
+                    <div class="col-md-6"><input type="checkbox" disabled  [checked]="recipe.isPublic" /></div>
+                </div>     
+            </div>
+
+            <div class="col-md-6" *ngIf="recipe.links[1].href">
+                <img class="center-block img-responsive"
+                     [style.height.px]="250"
+                     [style.margin.px]="2"
+                     [src]="recipe.links[1].href"
+                     [title]="recipe.name">
+            </div>
+        </div>
+        <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+    </div>
+
+    <div class="panel-footer">
+        <a class="btn btn-default" (click)="onBack()" style="width:80px">
+            <i class="glyphicon glyphicon-chevron-left"></i> Back
+        </a>
+        <a class="btn btn-primary" style="width:80px;margin-left:10px"
+           [routerLink]="['/recipeEdit', recipe.id]">
+            Edit
+        </a>
+    </div>
+</div>

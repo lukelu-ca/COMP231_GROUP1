@@ -13,10 +13,10 @@ namespace sRecipe.API
     {
         public static void Register(HttpConfiguration config)
         {
+
             // Web API configuration and services
             var cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(cors);
-
 
             // Web API routes
             config.MapHttpAttributeRoutes();
@@ -43,7 +43,11 @@ namespace sRecipe.API
             json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
             // configure caching
-            config.MessageHandlers.Add(new CacheCow.Server.CachingHandler(config));
+            //config.MessageHandlers.Add(new CacheCow.Server.CachingHandler(config));
+
+ 
+
+
 
         }
     }

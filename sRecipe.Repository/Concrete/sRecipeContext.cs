@@ -23,7 +23,6 @@ namespace sRecipe.Repository.Concrete
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer(new DbInitializer());
 
             //// Configure User & Profile entity
             //modelBuilder.Entity<User>()
@@ -63,6 +62,8 @@ namespace sRecipe.Repository.Concrete
             modelBuilder.Entity<User>()
                         .HasRequired(i => i.Profile)
                         .WithRequiredPrincipal(ad => ad.User);
+
+            // Database.SetInitializer(new DbInitializer());
 
             base.OnModelCreating(modelBuilder);
         }

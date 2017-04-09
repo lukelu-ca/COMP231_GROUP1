@@ -1,4 +1,5 @@
-﻿using System;
+﻿using sRecipe.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,10 @@ namespace sRecipe.API
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+
+            //Regist AutoMapping
+            MappingConfig.RegisterMaps();
+
         }
     }
 }

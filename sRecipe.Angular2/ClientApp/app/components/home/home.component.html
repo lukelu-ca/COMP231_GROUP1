@@ -1,16 +1,55 @@
-<h1>Hello, world!</h1>
-<p>Welcome to your new single-page application, built with:</p>
-<ul>
-    <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
-    <li><a href='https://angular.io/'>Angular 2</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>
-    <li><a href='https://webpack.github.io/'>Webpack</a> for building and bundling client-side resources</li>
-    <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
-</ul>
-<p>To help you get started, we've also set up:</p>
-<ul>
-    <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return here.</li>
-    <li><strong>Server-side prerendering</strong>. For faster initial loading and improved SEO, your Angular 2 app is prerendered on the server. The resulting HTML is then transferred to the browser where a client-side copy of the app takes over.</li>
-    <li><strong>Webpack dev middleware</strong>. In development mode, there's no need to run the <code>webpack</code> build tool. Your client-side resources are dynamically built on demand. Updates are available as soon as you modify any file.</li>
-    <li><strong>Hot module replacement</strong>. In development mode, you don't even need to reload the page after making most changes. Within seconds of saving changes to files, your Angular 2 app will be rebuilt and a new instance injected is into the page.</li>
-    <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and the <code>webpack</code> build tool produces minified static CSS and JavaScript files.</li>
-</ul>
+
+<div class="jumbotron">
+    <h2>Share Recipe Application Release 2</h2>
+    <p>
+        This is an team project for the course COMP231 Computer Programming Project.<br />
+    </p>
+    <p>According to the instructions, this project is developed by ASP.NET MVC and SQL Server features. </p>
+    <ul>
+        <li>Create AngularJS 2 Application</li>
+        <li>Support dynamic Theme</li>
+        <li>Realize to Changing Theme programmably</li>
+        <li>Using ASP.NET Ajax, Custom Client and Server Validattion</li>
+        <li>Implement CRUD operation by Entity Framework for SQL Server</li>
+        <li>Develop productive web design page by Bootstrap</li>
+        <li>Connecting to Microsoft Azure SQL Server Database</li>
+        <li>Deploy application to Microsoft Azure</li>
+        <li>Controlling Source Code through Github</li>
+    </ul>
+    <a class="btn btn-primary btn-lg pull-right" href="https://github.com/lukelu6666/COMP231_GROUP1" target="_blank">Get Source Code >>> </a>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>About team members</h3>
+        <ul>
+            <li>Luke Lu</li>
+            <li>Pepe Hang</li>
+            <li>Harris Ranas</li>
+            <li>hanna Yang</li>
+            <li>Kenny Ke</li>
+        </ul>
+        <img [src]='LOGO1' class="img-circle" alt="Cinque Terre" width="304" height="236" />
+    </div>
+    <div class="col-md-4">
+        <h3>Recipe Book</h3>
+        <p>
+            Anonymous user can read all recipes.
+            <br />
+            After signed up, you can share your recipe to all others.
+            For demostration, you can try to use <code>admin</code> and <code>test</code> user to <a href="/account/login">Login</a> the system.
+            <br />
+        </p>
+        <img [src]='LOGO2' class="img-circle" alt="Cinque Terre" width="304" height="236" />
+    </div>
+    <div class="col-md-4">
+        <h3>Setup</h3>
+        <p>
+            The settings of anonymous user are saved in <code>cookies</code>.<br />
+            The settings of login user are saved in <code>profile</code>.<br />
+            <a href="/Account/setting">Click here to setup a theme</a><br />
+            <br /><br />
+        </p>
+        <img [src]='LOGO3' class="img-circle" alt="Cinque Terre" width="304" height="236" />
+    </div>
+</div>

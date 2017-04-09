@@ -42,6 +42,7 @@ namespace sRecipe.Repository.Concrete
         }
         public RepositoryActionResult<Recipe> DeleteRecipe(int id)
         {
+
             return RepositoryActionResultExtensions<Recipe, sRecipeContext>
                  .Delete(_ctx,
                          _ctx.Recipes

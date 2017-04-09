@@ -1,0 +1,177 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <form class="form-horizontal"
+          novalidate
+          (ngSubmit)="saveRecipe()"
+          [formGroup]="recipeForm">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-7">
+
+                    <fieldset>
+                        <div class="form-group"
+                             [ngClass]="{'has-error': displayMessage.name }">
+                            <label class="col-md-2 control-label" for="recipeNameId">Recipe Name</label>
+
+                            <div class="col-md-8">
+                                <input class="form-control"
+                                       id="recipeNameId"
+                                       type="text"
+                                       placeholder="Name (required)"
+                                       formControlName="name" />
+                                <span class="help-block" *ngIf="displayMessage.name">
+                                    {{displayMessage.name}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group" [ngClass]="{'has-error': displayMessage.mealTypeId}">
+                            <label class="col-md-2 control-label" for="carlorie">Meal Type</label>
+
+                            <div class="col-md-8">
+                                <select class="form-control"
+                                        id="mealTypeId"
+                                        formControlName="mealTypeId">
+                                    <option *ngFor="let m of mealTypes" [value]="m.id">
+                                        {{m.mealTypeName}}
+                                    </option>
+
+                                </select>
+                                <span class="help-block" *ngIf="displayMessage.mealTypeId">
+                                    {{displayMessage.mealTypeId}}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group"
+                             [ngClass]="{'has-error': displayMessage.cooking_Time}">
+                            <label class="col-md-2 control-label" for="cooking_Time">Cooking Time</label>
+
+                            <div class="col-md-8">
+                                <input class="form-control"
+                                       id="cooking_Time"
+                                       type="text"
+                                       placeholder="Cooking Time (required)"
+                                       formControlName="cooking_Time" />
+                                <span class="help-block" *ngIf="displayMessage.cooking_Time">
+                                    {{displayMessage.cooking_Time}}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" [ngClass]="{'has-error': displayMessage.number_of_Services}">
+                            <label class="col-md-2 control-label" for="number_of_Services">Numbe of Services</label>
+
+                            <div class="col-md-8">
+                                <input class="form-control"
+                                       id="number_of_Services"
+                                       type="text"
+                                       placeholder="Numbe of Services"
+                                       formControlName="number_of_Services" />
+                                <span class="help-block" *ngIf="displayMessage.number_of_Services">
+                                    {{displayMessage.number_of_Services}}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" [ngClass]="{'has-error': displayMessage.calorie}">
+                            <label class="col-md-2 control-label" for="calorie">Calorie</label>
+
+                            <div class="col-md-8">
+                                <input class="form-control"
+                                       id="calorie"
+                                       type="text"
+                                       placeholder="Calorie"
+                                       formControlName="calorie" />
+                                <span class="help-block" *ngIf="displayMessage.calorie">
+                                    {{displayMessage.calorie}}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" [ngClass]="{'has-error': displayMessage.isPublic}">
+                            <label class="col-md-2 control-label" for="carlorie">isPublic</label>
+
+                            <div class="col-md-8">
+                                <input class="checkbox"
+                                       id="isPublic"
+                                       type="checkbox"
+                                       placeholder="isPublic"
+                                       formControlName="isPublic" />
+                                <span class="help-block" *ngIf="displayMessage.isPublic">
+                                    {{displayMessage.isPublic}}
+                                </span>
+                            </div>
+                        </div>
+                        <!--<div formArrayName="tags">
+                            <div class="row">
+                                <button class="col-md-offset-1 col-md-1 btn btn-default"
+                                        type="button"
+                                        (click)="addTag()">
+                                    Add Tag
+                                </button>
+                            </div>
+                            <div class="form-group"
+                                 *ngFor="let tag of tags.controls; let i=index">
+                                <label class="col-md-2 control-label" [attr.for]="i">Tag</label>
+
+                                <div class="col-md-8">
+                                    <input class="form-control"
+                                           [id]="i"
+                                           type="text"
+                                           placeholder="Tag"
+                                           [formControlName]="i" />
+                                </div>
+                            </div>
+                        </div>-->
+
+
+
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <span>
+                                    <button class="btn btn-primary"
+                                            type="submit"
+                                            style="width:80px;margin-right:10px"
+                                            [disabled]='!recipeForm.valid'>
+                                        Save
+                                    </button>
+                                </span>
+                                <span>
+                                    <a class="btn btn-default"
+                                       style="width:80px"
+                                       [routerLink]="['/recipes']">
+                                        Cancel
+                                    </a>
+                                </span>
+                                <span>
+                                    <a class="btn btn-default"
+                                       style="width:80px"
+                                       (click)="deleteRecipe()">
+                                        Delete
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </div>
+
+                <div class="col-md-4" *ngIf="recipe">
+                    <img class="center-block img-responsive"
+                         [style.height.px]="250"
+                         [style.margin.px]="2"
+                         [src]="recipe.links[1].href"
+                         [title]="recipe.name">
+                    <input type="file" name="Image" size="40" required class="form-control" (change)="uploadImage($event)">
+
+                </div>
+            </div>
+
+            <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+        </div>
+    </form>
+    <!--<p> {{recipeForm.value | json}}</p>
+    <p>{{recipe | json}}</p>-->
+</div>

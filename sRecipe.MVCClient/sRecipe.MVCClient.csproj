@@ -259,10 +259,6 @@
       <Project>{b3f50395-ff6c-431a-9040-2353e1d8bf69}</Project>
       <Name>sRecipe.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\sRecipe.DTO\sRecipe.DTO.csproj">
-      <Project>{812a9f08-0f6b-4d13-ae54-f110762fa2fa}</Project>
-      <Name>sRecipe.DTO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\sRecipe.Repository\sRecipe.Repository.csproj">
       <Project>{a212d2a0-09b8-4c1d-b659-595aa3552cd2}</Project>
       <Name>sRecipe.Repository</Name>

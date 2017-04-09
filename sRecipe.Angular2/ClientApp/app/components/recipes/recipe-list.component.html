@@ -1,0 +1,82 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        <h4> {{pageTitle}} </h4>
+    </div>
+
+    <!-- Filter the Recipe   -->
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-2'><b>Filter by:</b></div>
+            <div class='col-md-2'>
+                <input type='text' [(ngModel)]='listFilter' />
+            </div>
+
+            <div class='col-md-8' *ngIf='listFilter'>
+                Filtered by: {{listFilter}}
+            </div>
+
+        </div>
+        <div class='row'>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="onlyPublic">Only Show Public</label>
+                <div class="col-md-2">
+                    <input type="checkbox" class="checkbox" id="onlyPublic"
+                           (click)="togglePublic()" />
+                </div>
+
+            </div>
+        </div>
+
+        <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+
+        <div class='table-responsive'>
+            <table class='table'
+                   *ngIf='recipes && recipes.length'>
+                <thead>
+                    <tr>
+                        <th>
+                            <button class='btn btn-primary'
+                                    (click)='toggleImage()'>
+                                {{showImage ? 'Hide' : 'Show'}} Picture
+                            </button>
+                        </th>
+                        <th>Recipe</th>
+                        <th>Meal Type</th>
+                        <th>Cooking Time</th>
+                        <th>Number of Services</th>
+                        <th>Is Public</th>
+                        <th>Submitted By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let recipe of recipes | recipeFilter: listFilter : onlyPublic'>
+                        <td>
+                            <img *ngIf='showImage && recipe.links && recipe.links[1].href'
+                                 [src]='recipe.links[1].href'
+                                 [title]='recipe.name | uppercase'
+                                 [style.width.px]='imageWidth'
+                                 [style.margin.px]='imageMargin'>
+                        </td>
+                        <td>
+                            <a [routerLink]="['/recipe', recipe.id]">
+                                {{recipe.name}}
+                            </a>
+                        </td>
+                        <td>{{ recipe.mealTypeName | lowercase }}</td>
+                        <td>{{ recipe.cooking_Time }}</td>
+                        <td>{{ recipe.number_of_Services }}</td>
+                        <td><input type="checkbox" disabled [checked]="recipe.isPublic" /></td>
+                        <td>{{ recipe.userName}}</td>
+                        <td></td>
+                        <td>
+                            <a class="btn btn-primary"
+                               [routerLink]="['/recipeEdit', recipe.id]">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
